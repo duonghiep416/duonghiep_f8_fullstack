@@ -1,0 +1,11 @@
+.form-group > label,
+.form-group > span {
+    display: inline-block;
+    width: 150px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exercise 03</title>
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <form action="">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" />
+            </div>
+            <div class="form-group">
+                <label for="city">City of Employment:</label>
+                <input type="text" name="city" id="city" />
+            </div>
+            <div class="form-group">
+                <label for="servers">Web servers:</label>
+                <select name="servers" id="servers">
+                    <option value="0">-Choose a server-</option>
+                    <option value="1">Server 1</option>
+                    <option value="2">Server 2</option>
+                    <option value="3">Server 3</option>
+                    <option value="4">Server 4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <span>Please specify your role:</span>
+                <div>
+                    <div class="role-item">
+                        <input
+                            type="radio"
+                            name="role"
+                            id="admin"
+                            value="admin"
+                        />
+                        <label for="admin">Admin</label>
+                    </div>
+                    <div class="role-item">
+                        <input
+                            type="radio"
+                            name="role"
+                            id="engineer"
+                            value="engineer"
+                        />
+                        <label for="engineer">Engineer</label>
+                    </div>
+                    <div class="role-item">
+                        <input
+                            type="radio"
+                            name="role"
+                            id="manager"
+                            value="manager"
+                        />
+                        <label for="manager">Manager</label>
+                    </div>
+                    <div class="role-item">
+                        <input
+                            type="radio"
+                            name="role"
+                            id="guest"
+                            value="guest"
+                        />
+                        <label for="guest">Guest</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <span>Single Sign-on to the following:</span>
+                <div>
+                    <div class="sign-on-item">
+                        <input
+                            type="checkbox"
+                            name="sign-on"
+                            id="mail"
+                            value="mail"
+                        />
+                        <label for="mail">Mail</label>
+                    </div>
+                    <div class="sign-on-item">
+                        <input
+                            type="checkbox"
+                            name="sign-on"
+                            id="payroll"
+                            value="payroll"
+                        />
+                        <label for="payroll">Payroll</label>
+                    </div>
+                    <div class="sign-on-item">
+                        <input
+                            type="checkbox"
+                            name="sign-on"
+                            id="self-service"
+                            value="self-service"
+                        />
+                        <label for="self-service">Self-service</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" type="submit">Login</button>
+            <button class="btn" type="reset">Reset</button>
+        </form>
+    </body>
+</html>

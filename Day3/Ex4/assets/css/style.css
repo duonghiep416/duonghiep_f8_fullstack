@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Common */
+body {
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Navbar */
+.navbar {
+    width: fit-content;
+    border: 1px solid #af9654;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+.navbar a {
+    display: inline-block;
+    color: #af9654;
+    padding: 20px 40px;
+}
+
+.navbar a:hover {
+    background-color: #af9654;
+    color: #fff;
+}
+
+/* Company Info */
+.company-info {
+    display: flex;
+    align-items: stretch;
+}
+
+.info-details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 0 50px;
+    background-color: #f6f6f6;
+    height: 400px;
+}
+
+.company-address {
+    margin-bottom: 20px;
+}
+
+.company-name {
+    margin-bottom: 30px;
+}
+
+.company-email span {
+    color: #af9654;
+    text-decoration: underline;
+}
