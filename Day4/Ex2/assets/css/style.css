@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+footer,
+header {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    background-color: #8b3939;
+}
+
+footer {
+    background-color: #6aa84d;
+}
+
+.reservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.small-title,
+.big-title {
+    color: #3a2617;
+}
+
+.small-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.big-title {
+    font-family: "Alfa Slab One", cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.form-reservation {
+    display: flex;
+    width: 640px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-item {
+    font-family: "Bebas Neue", sans-serif;
+    color: #000;
+    height: 50px;
+    padding: 0 20px;
+    border: 1px solid #d3d3d3;
+    outline: none;
+    flex-basis: calc(100% / 2 - 20px);
+    flex-grow: 0;
+    font-size: 20px;
+}
+
+.form-item::placeholder {
+    color: #000;
+}
+
+.btn {
+    background-color: #b0322b;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    font-family: "Alfa Slab One", cursive;
+    font-size: 15px;
+    cursor: pointer;
+}
