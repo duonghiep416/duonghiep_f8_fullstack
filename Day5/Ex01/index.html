@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ex01</title>
+        <!-- Font Awesome Icon-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <!-- CSS -->
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <section class="form-submit">
+            <h1 class="title">Hey there</h1>
+            <p class="desc">
+                <span>We'd like to hear from you.</span> Send us your message or
+                just say hy with our contact form or directly via phone, we love
+                to chat
+            </p>
+            <form action="" class="form">
+                <div class="form-group">
+                    <input
+                        type="text"
+                        name="fullname"
+                        id="fullname"
+                        placeholder="Your name"
+                    />
+                    <p class="input-message">Enter your name</p>
+                    <label for="fullname">
+                        <i class="fa-solid fa-user icon"> </i
+                    ></label>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <div class="form-group">
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="your@domain.com"
+                    />
+                    <p class="input-message">Enter your email</p>
+                    <label for="email">
+                        <i class="fa-solid fa-envelope icon"> </i
+                    ></label>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="form-group">
+                    <input
+                        type="number"
+                        name="phone"
+                        id="phone"
+                        placeholder="+44 00 123"
+                    />
+                    <p class="input-message">Enter your phone number</p>
+                    <label for="phone">
+                        <i class="fa-solid fa-mobile-screen-button icon"> </i
+                    ></label>
+                </div>
+                <div class="form-group">
+                    <select name="subject" id="subject">
+                        <option value="0" selected>Subject</option>
+                        <option value="1">Math</option>
+                        <option value="2">History</option>
+                        <option value="3">English</option>
+                        <option value="4">HTML CSS</option>
+                        <option value="5">Javascript</option>
+                    </select>
+                    <p class="input-message">Enter your subject</p>
+                    <label for="subject">
+                        <i class="fa-solid fa-book-bookmark icon"></i
+                    ></label>
+                </div>
+                <div class="form-group">
+                    <textarea
+                        name="message"
+                        id="message"
+                        cols="30"
+                        rows="10"
+                        placeholder="Message"
+                    ></textarea>
+                    <p class="input-message">Enter your message</p>
+                    <label for="message" class="label-long">
+                        <i class="fa-solid fa-message icon"> </i
+                    ></label>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="row">
+                    <input
+                        type="checkbox"
+                        name="send-message"
+                        id="send-message"
+                        hidden
+                    />
+                    <label for="send-message" class="send-message">
+                        Send me a copy of this message
+                    </label>
+                    <button type="submit">SEND</button>
+                </div>
+            </form>
+        </section>
+    </body>
+</html>
+s
