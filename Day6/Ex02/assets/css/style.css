@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #ebf5fe;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 970px;
+    min-height: 100vh;
+    max-width: calc(100% - 48px);
+    margin: auto auto;
+    display: flex;
+    align-items: center;
+}
+
+.course-item {
+    width: 310px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 6px 1px rgb(195, 195, 195);
+    background-color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.course-item:hover {
+    transform: translateY(-3px);
+}
+
+.course-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 23px;
+}
+
+.course-item-header {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+}
+
+.course-title {
+    font-size: 18px;
+    font-weight: 700;
+    width: 108px;
+    line-height: 1.2;
+}
+
+.course-desc {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.course-link {
+    font-weight: 700;
+    font-size: 15px;
+    color: #2689f1;
+    transition: 0.3s;
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+.course-item-unique .course-item-icon {
+    background-color: #eb5e68;
+}
+.course-item-unique:hover {
+    border: 1px solid #eb5e68;
+}
+
+.course-item-theme .course-item-icon {
+    background-color: #5cbea5;
+}
+
+.course-item-theme:hover {
+    border: 1px solid #5cbea5;
+}
+
+.course-item-digital .course-item-icon {
+    background-color: #f2a434;
+}
+
+.course-item-digital:hover {
+    border: 1px solid #f2a434;
+}
+
+.course-item-website .course-item-icon {
+    background-color: #4e84e6;
+}
+
+.course-item-website:hover {
+    border: 1px solid #4e84e6;
+}
+
+.course-item-responsive .course-item-icon {
+    background-color: #9b40d7;
+}
+
+.course-item-responsive:hover {
+    border: 1px solid #9b40d7;
+}
+
+.course-item-support .course-item-icon {
+    background-color: #83af3e;
+}
+
+.course-item-support:hover {
+    border: 1px solid #83af3e;
+}
