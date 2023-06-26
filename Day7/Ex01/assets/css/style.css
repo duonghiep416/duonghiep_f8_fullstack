@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+@font-face {
+    font-family: SFU;
+    src: url(../fonts/SFUHelveticaCondensedBold.TTF);
+}
+
+body {
+    font-family: "Asap", sans-serif;
+    color: #3f3424;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.banner-info {
+    position: absolute;
+    top: 50%;
+    left: 155px;
+    transform: translateY(-50%);
+    background-color: #ffffffcc;
+    padding: 25px 20px 40px;
+    width: 560px;
+    border-radius: 5px;
+}
+
+.banner-desc {
+    font-size: 14px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.banner-title {
+    color: #dc5e55;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.banner-location {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.banner-price {
+    position: absolute;
+    right: 30px;
+    bottom: -22px;
+    font-family: SFU;
+    font-size: 23px;
+    font-weight: 300;
+    background-color: #dc5e55;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    user-select: none;
+}
