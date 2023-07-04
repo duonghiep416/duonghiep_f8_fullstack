@@ -129,13 +129,15 @@ a {
 .item:hover .item-container {
     border-color: rgba(216, 214, 214, 0.726);
 }
+.link-more {
+    display: inline-block;
+}
 
-/* 
-                    <i class="fa-solid fa-briefcase"></i>
-                    <i class="fa-solid fa-gavel"></i>
-                    <i class="fa-regular fa-handshake"></i>
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <i class="fa-solid fa-handcuffs"></i>
+.link-more i {
+    transition: 0.5s;
+}
 
-
-*/
+.link-more:hover i {
+    background-color: #fff;
+    color: #000;
+}
