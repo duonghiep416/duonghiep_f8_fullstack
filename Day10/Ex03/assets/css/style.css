@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background-color: #323543;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container {
+    width: 800px;
+    min-height: 100vh;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.front-envelope {
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid #de6055;
+    border-left: 200px solid #da554a;
+    border-right: 200px solid #de6055;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.envelope {
+    position: relative;
+    background-color: transparent;
+    padding-top: 200px;
+    overflow: hidden;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 200px;
+    background-color: #fff;
+    z-index: -1;
+}
+
+.triangle-top {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    border-top: 100px solid #cb4f41;
+    border-bottom: 100px solid transparent;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    transform-origin: top;
+    transition: 0.2s linear;
+    z-index: 3;
+}
+
+@keyframes open {
+    from {
+        rotate: x 0deg;
+    }
+
+    to {
+        rotate: x 180deg;
+    }
+}
+
+.shadow {
+    margin-top: 120px;
+    width: 480px;
+    height: 30px;
+    border-radius: 50%;
+    background: #303030;
+    filter: blur(5px);
+    transition: 0.3s linear;
+}
+
+.envelope:hover ~ .shadow {
+    margin-top: 70px;
+    width: 350px;
+}
+
+.envelope:hover .triangle-top {
+    rotate: x 180deg;
+    animation: open 0.2s linear;
+    z-index: 0;
+}
+
+.letter {
+    bottom: -200px;
+    left: 35px;
+    position: absolute;
+    width: 330px;
+    height: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    transition: 0.2s linear;
+    transition-delay: 0.2s;
+    overflow: hidden;
+}
+
+.envelope:hover .letter {
+    bottom: 0px;
+}
+
+@keyframes letterUp {
+    from {
+        bottom: -200px;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+.skew {
+    display: flex;
+    gap: 23px;
+}
+
+.rectangle-skew {
+    width: 15px;
+    height: 17px;
+    background-color: #ce515b;
+    transform: skewX(-45deg);
+}
+
+.rectangle-1 {
+    width: 170px;
+    height: 30px;
+    background-color: #ce515b;
+    margin: 20px;
+}
+
+.rectangle-2 {
+    width: 100px;
+    height: 30px;
+    background-color: #ce515b;
+    margin: 20px;
+}
+
+.circle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #df606a67;
+    bottom: 137px;
+    right: 20px;
+}

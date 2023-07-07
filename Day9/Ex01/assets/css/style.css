@@ -33,7 +33,7 @@ a {
 
 .history-detail {
     position: relative;
-
+    order: 1;
     width: 300px;
 }
 
@@ -52,6 +52,7 @@ a {
     padding-bottom: 38px;
     margin-bottom: 10px;
     cursor: pointer;
+    transition: 0.5s ease;
 }
 
 .history-desc {
@@ -73,6 +74,7 @@ a {
 .history-year {
     position: relative;
     line-height: 27px;
+    order: 2;
 }
 
 .history-detail::after {
@@ -166,3 +168,83 @@ a {
     color: #fff;
     font-size: 14px;
 }
+
+.left-side-item:hover .history-detail {
+    order: 2;
+}
+
+.left-side-item:hover .history-year {
+    order: 1;
+}
+
+.left-side-item:hover .history-detail::after {
+    left: -27px;
+    right: unset;
+}
+
+.left-side-item:hover .history-year::before {
+    right: -33px;
+    left: unset;
+}
+
+.left-side-item:hover .history-year::after {
+    right: -27px;
+    left: unset;
+}
+
+.left-side-item:hover {
+    text-align: left;
+}
+/* 
+{
+    
+    position: relative;
+    width: 300px;
+}
+
+.history-detail::after {
+    content: "";
+    width: 1px;
+    height: 130px;
+    background: #e4e4e4;
+    position: absolute;
+    top: 33px;
+    left: -27px;
+}
+
+.history-year::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: -33px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #d5edebb8;
+}
+
+.history-year::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: -27px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #258f86;
+}
+
+.left-side-item {
+    text-align: left;
+    display: flex;
+    column-gap: 50px;
+    width: 450px;
+    padding-bottom: 38px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+*/

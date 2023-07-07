@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    padding-top: 50px;
+}
+
+.nav-item label p {
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+    border: 5px solid #fff;
+    color: #747474;
+    user-select: none;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container {
+    width: 1200px;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+}
+
+.navbar {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.navbar ul {
+    display: inline-flex;
+}
+
+.navbar ul li {
+    border: 1px solid #000;
+    border-left: none;
+}
+
+.navbar ul li:first-child {
+    border-left: 1px solid #000;
+}
+
+.list-items {
+    position: relative;
+}
+
+.nav-item-content {
+    position: absolute;
+    padding: 25px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    border: 1px solid #000;
+    display: none;
+    animation: flip 0.4s ease-in;
+    color: #747474;
+    transform-origin: top;
+}
+
+@keyframes flip {
+    from {
+        transform: rotateX(-90deg);
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+.nav-item-content .content-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.item-desc {
+    line-height: 1.5;
+}
+
+.navbar input {
+    display: none;
+}
+
+.navbar input[type="radio"]:checked ~ .nav-item-content {
+    display: block;
+}
+
+.navbar input[type="radio"]:checked ~ label p {
+    background-color: #4298db;
+    color: #fff;
+}
