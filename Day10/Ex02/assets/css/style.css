@@ -65,9 +65,11 @@ body {
 
 @keyframes flip {
     from {
-        transform: rotateX(-90deg);
+        transform: rotateX(0deg);
     }
-
+    50% {
+        transform: rotateX(-60deg);
+    }
     to {
         transform: rotateX(0deg);
     }
