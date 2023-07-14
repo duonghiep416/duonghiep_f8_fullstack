@@ -439,6 +439,22 @@ button {
 
 .footer .row:first-child {
     gap: 50px;
+    margin-bottom: 20px;
+}
+
+.footer .row:last-child {
+    position: relative;
+    padding-top: 10px;
+}
+
+.footer .row:last-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ecececd7;
+    top: 0;
 }
 
 .copyright {
@@ -461,6 +477,11 @@ button {
     line-height: 1.71;
     color: #747474;
     margin: 0 10px;
+    transition: 0.2s linear;
+}
+
+.copyright-links a:hover {
+    color: #000;
 }
 
 @media screen and (min-width: 768px) {
