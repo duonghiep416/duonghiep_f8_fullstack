@@ -109,6 +109,7 @@
             right: 20px;
             bottom: 20px;
             filter: drop-shadow(3px 0px 19px rgba(146, 144, 153, 0.8));
+            z-index: 99;
             .chat-text {
                 display: none;
             }
@@ -117,5 +118,6 @@
 
     .main {
         grid-area: main;
+        margin-top: 20px;
     }
 }

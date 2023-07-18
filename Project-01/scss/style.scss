@@ -183,13 +183,26 @@ a {
     grid-auto-rows: 188px;
     .wide {
         grid-column: span 2;
+        overflow: hidden;
+        border-radius: 16px;
+        cursor: pointer;
+        &:hover img {
+            scale: 1.1;
+        }
     }
 
     .tall {
+        cursor: pointer;
         grid-row: span 2;
+        overflow: hidden;
+        border-radius: 16px;
+        &:hover img {
+            scale: 1.1;
+        }
     }
 
     img {
+        transition: scale 0.2s linear;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -198,9 +211,20 @@ a {
 }
 
 #active-menu {
+    cursor: pointer;
     display: none;
+}
+
+.active-menu-icon {
+    cursor: pointer;
 }
 
 @import "mobile-tablet";
 @import "mobile";
 @import "tablet";
+
+@media (min-width: 991px) and (max-width: 1105px) {
+    .header .nav {
+        column-gap: 20px;
+    }
+}
