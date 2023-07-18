@@ -1,0 +1,15 @@
+@media (min-width: 576px) and (max-width: 991px) {
+    .header {
+        justify-content: space-between;
+        .search-form {
+            display: flex;
+            margin-left: auto;
+        }
+    }
+
+    .sidebar {
+        .explore {
+            margin-bottom: 30px;
+        }
+    }
+}

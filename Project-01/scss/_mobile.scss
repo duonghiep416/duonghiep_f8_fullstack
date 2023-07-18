@@ -1,0 +1,15 @@
+@media (max-width: 575px) {
+    .header {
+        .search-form {
+            display: none;
+        }
+        .nav {
+            width: 50%;
+            left: 0;
+        }
+    }
+
+    .sidebar .nav .nav-item {
+        flex-basis: calc(100% / 2 - 20px);
+    }
+}

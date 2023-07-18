@@ -1,0 +1,121 @@
+@media (max-width: 991px) {
+    .header {
+        .nav {
+            order: 1;
+            position: fixed;
+            flex-direction: column;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40%;
+            background-color: #fff;
+            padding: 35px;
+            row-gap: 25px;
+            transform: translateX(-100%);
+            transition: transform 0.3s linear;
+            .logo-link {
+                display: block;
+                margin-bottom: 30px;
+            }
+
+            .nav-link {
+                font-size: 2.1rem;
+                padding: 16px 0;
+            }
+        }
+        .actions {
+            margin-left: auto;
+        }
+
+        .active-menu-icon {
+            display: block;
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .sidebar {
+        padding: 54px 0 0 0px;
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        opacity: 0;
+        visibility: hidden;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        transition-property: opacity, visibility;
+        transition: 0.3s linear;
+    }
+
+    #active-menu:checked ~ .wrapper-inner {
+        .header .nav {
+            transform: translateX(0);
+        }
+
+        .overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .header {
+        grid-area: header;
+        .search-form {
+            display: none;
+        }
+        .logo-header {
+            display: block;
+        }
+    }
+    .wrapper-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto repeat(2, 1fr);
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "header header header header header"
+            "sidebar sidebar sidebar sidebar sidebar"
+            "main main main main main"
+            "main main main main main"
+            "main main main main main";
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        padding: 0 0 0 0px;
+        .logo-link {
+            display: none;
+        }
+
+        .heading {
+            margin-top: 0;
+        }
+
+        .nav {
+            margin-top: 20px;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+            .nav-item {
+                flex-basis: calc(100% / 4 - 20px);
+            }
+        }
+
+        .chat-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            filter: drop-shadow(3px 0px 19px rgba(146, 144, 153, 0.8));
+            .chat-text {
+                display: none;
+            }
+        }
+    }
+
+    .main {
+        grid-area: main;
+    }
+}
