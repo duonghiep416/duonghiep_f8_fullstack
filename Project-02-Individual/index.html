@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- FontAwesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Animate -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="./css/grid.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <input type="checkbox" name="menu" id="menu" hidden />
+        <header class="header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-6 col-lg-1 header-logo">
+                        <a href="#!">
+                            <img src="./img/logo.png" alt="Green Chop" />
+                        </a>
+                    </div>
+                    <div class="col-6 col-lg-1 header-action">
+                        <div class="header-icon cart-icon">
+                            <a href="#!">
+                                <img src="./icons/cart.svg" alt="Cart" />
+                            </a>
+                        </div>
+                        <div class="header-icon">
+                            <a href="#!">
+                                <img src="./icons/search.svg" alt="Search" />
+                            </a>
+                        </div>
+                        <div class="header-icon menu-icon">
+                            <label for="menu" class="menu-label">
+                                <img src="./icons/Menu.svg" alt="Menu" />
+                            </label>
+                        </div>
+                    </div>
+                    <label for="menu" class="menu-label"
+                        ><span class="overlay"></span
+                    ></label>
+                    <nav class="col-lg-10 header-navbar">
+                        <div class="header-logo">
+                            <a href="#!">
+                                <img src="./img/logo.png" alt="Green Chop" />
+                            </a>
+                        </div>
+                        <ul class="navbar-list">
+                            <li class="navbar-item nav-item-active">
+                                <a href="#!" class="nav-link">Trang chủ</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#!" class="nav-link">Về Greenchop</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#!" class="nav-link">Sản phẩm</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#!" class="nav-link">Tin tức</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#!" class="nav-link">Liên Hệ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>

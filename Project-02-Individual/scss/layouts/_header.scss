@@ -1,0 +1,180 @@
+.header {
+    --column-space: 0;
+    // --container-padding: 0px;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    .header-action {
+        @include flex($justify: end);
+        margin-left: auto;
+        gap: 20px;
+        .header-icon img {
+            cursor: pointer;
+        }
+    }
+
+    .cart-icon {
+        position: relative;
+        &:after {
+            content: "3";
+            position: absolute;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #fff;
+            @include circle(16px);
+            background-color: #e05000;
+            text-align: center;
+            line-height: 16px;
+            top: -6px;
+            right: -4px;
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        opacity: 0;
+        visibility: hidden;
+        transition-property: opacity, visibility;
+        transition: 0.2s linear;
+    }
+
+    .header-navbar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translateX(-100%);
+        width: 70%;
+        background-color: #fff;
+        padding: 20px;
+        transition-property: opacity, transform;
+        transition: 0.2s linear;
+
+        .header-logo {
+            margin-bottom: 25px;
+        }
+
+        .navbar-list {
+            @include flex(column, center, start, 10px);
+        }
+
+        .navbar-item {
+            width: 100%;
+            &:hover .nav-link {
+                color: $primaryColor;
+            }
+        }
+
+        .nav-item-active .nav-link {
+            color: $primaryColor;
+        }
+
+        .nav-item-active .nav-link::after,
+        .navbar-item:hover .nav-link::after {
+            width: calc(100% - 10px);
+            color: $primaryColor;
+        }
+
+        .nav-link {
+            @include font(text, p3, A);
+            padding: 10px;
+            display: block;
+            border-radius: 6px;
+            position: relative;
+            color: $linkColor;
+            transition: color 0.3s linear;
+            &::after {
+                content: "";
+                position: absolute;
+                height: 3px;
+                width: 0;
+                bottom: 0;
+                left: 10px;
+                background-color: $primaryColor;
+                transition: width 0.5s ease-in-out;
+            }
+        }
+    }
+}
+
+#menu:checked ~ .header .header-navbar {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#menu:checked ~ .header .header-navbar {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#menu:checked ~ .header .overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+    .header {
+        .header-action {
+            gap: 60px;
+            order: 1;
+            margin-top: 24px;
+        }
+        .container {
+            --container-width: 1442px;
+        }
+        .header-navbar {
+            position: static;
+            opacity: 1;
+            transform: translateX(0);
+            width: auto;
+            margin-top: 24px;
+            .header-logo {
+                display: none;
+            }
+
+            .navbar-list {
+                flex-direction: row;
+                justify-content: flex-end;
+                margin-right: 40px;
+                gap: 60px;
+                .navbar-item {
+                    width: auto;
+                }
+            }
+
+            .nav-link {
+                display: inline;
+                padding: 42px 0;
+                &::after {
+                    left: 0;
+                }
+            }
+            .nav-item-active .nav-link::after,
+            .navbar-item:hover .nav-link::after {
+                width: 100%;
+                color: $primaryColor;
+            }
+        }
+    }
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1400px) {
+}

@@ -10,7 +10,7 @@
     }
 
     .sidebar .nav .nav-item {
-        flex-basis: calc(100% / 2 - 20px);
+        flex-basis: calc(100% / 3 - 20px);
     }
 
     .main {
@@ -47,5 +47,11 @@
         .img-wrapper:nth-child(8) {
             order: 8;
         }
+    }
+}
+
+@media (max-width: 540px) {
+    .sidebar .nav .nav-item {
+        flex-basis: calc(100% / 2 - 20px);
     }
 }
