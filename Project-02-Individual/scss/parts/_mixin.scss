@@ -1,4 +1,4 @@
-@mixin font($type, $tag, $style) {
+@mixin font($type, $tag, $style: normal) {
     font-style: normal;
     @if $type == title {
         @if $tag != h4 and $tag != h3 {
