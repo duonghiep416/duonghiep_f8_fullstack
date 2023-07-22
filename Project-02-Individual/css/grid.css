@@ -17,6 +17,21 @@ g-3 => spacer
 g-4 => 1.5 * spacer
 g-5 => 3 * spacer
 
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1400px) {
+}
+
 
 */
 * {

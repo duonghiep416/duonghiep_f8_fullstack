@@ -5,3 +5,19 @@
 button {
     cursor: pointer;
 }
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title {
+    @include font(title, h3);
+    text-align: center;
+}
+
+.section-desc {
+    @include font(text, p4, p);
+    text-align: center;
+}

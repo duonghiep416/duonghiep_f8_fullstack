@@ -101,7 +101,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0;
+            padding: 20px 0 0 0;
 
             .hero-title {
                 font-size: 5.2rem;
@@ -121,6 +121,7 @@
             min-width: 48vw;
             border-radius: 20px 0px 0px 20px;
             padding: 0;
+            margin: 0;
             // overflow: hidden;
             .media-img {
                 transform: translate(-21.3%, -50%);
