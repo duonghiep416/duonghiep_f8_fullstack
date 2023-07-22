@@ -13,11 +13,22 @@ button {
 }
 
 .section-title {
-    @include font(title, h3);
+    font-size: 3.2rem;
+    font-weight: 700;
     text-align: center;
 }
 
 .section-desc {
     @include font(text, p4, p);
     text-align: center;
+}
+
+.btn {
+    background-color: #46b20f;
+    display: flex;
+    padding: 16px 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: #fff;
 }
