@@ -1,0 +1,106 @@
+.protect {
+    margin-top: 120px;
+    .row {
+        justify-content: center;
+        row-gap: 30px;
+    }
+
+    .section-header {
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    .protect-list {
+        counter-reset: protect;
+    }
+    .protect-item {
+        height: 431px;
+        width: 415px;
+        counter-increment: protect;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px 0px;
+
+        &:nth-child(1) .protect-item-desc,
+        &:nth-child(3) .protect-item-desc {
+            width: 278.129px;
+        }
+        .protect-item-img {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 234px;
+            margin-bottom: 29px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .protect-item-content {
+            padding: 0 22px 30px 33px;
+            .protect-item-title {
+                @include font(text, p2, A);
+                line-height: 3.2rem;
+                color: #e05000;
+                &::before {
+                    content: "0" counter(protect) ". ";
+                }
+                margin-bottom: 5px;
+            }
+
+            .protect-item-desc {
+                @include font(text, p4);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+    .protect {
+        .protect-list {
+            .row {
+                justify-content: space-evenly;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1400px) {
+    .protect {
+        .protect-list {
+            position: relative;
+            .protect-item {
+                box-shadow: none;
+            }
+            .row {
+                gap: 30px;
+                justify-content: center;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 433px;
+                width: 100vw;
+                background-color: #fff0e7;
+                border-radius: 10px;
+                top: 138.02px;
+                left: calc(-1 * (100vw - 1440px) / 2);
+                z-index: -1;
+            }
+        }
+        .section-header {
+            margin-bottom: 74px;
+        }
+    }
+}

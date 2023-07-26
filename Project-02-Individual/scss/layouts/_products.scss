@@ -11,14 +11,15 @@
         row-gap: 20px;
     }
     .product-item {
-        @include flex(column);
+        @include flex(column, between);
         .product-img {
             position: relative;
-            width: 288px;
+            width: 170px;
             margin-bottom: 20.63px;
         }
         .product-name {
             @include font(title, h3);
+            font-size: 2.4rem;
             text-align: center;
             text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.342);
             position: relative;
@@ -40,17 +41,52 @@
         }
 
         .product-price {
-            @include font(text, p3);
+            @include font(text, p4);
             color: #2c2c2c;
             margin-top: 8px;
             margin-bottom: 32px;
             span {
-                @include font(text, p1, A);
+                @include font(text, p3, A);
             }
         }
         .product-btn {
             @include font(other, button2);
+            font-size: 1.5rem;
         }
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .btn {
+        padding: 16px 14px;
+    }
+    .product-list {
+        .product-item {
+            .product-name {
+                @include font(title, h3);
+            }
+
+            .product-price {
+                @include font(text, p3);
+                span {
+                    @include font(text, p1, A);
+                }
+            }
+
+            .product-btn {
+                @include font(other, button2);
+            }
+
+            .product-img {
+                width: 288px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 700px) {
+    .product-list .product-item .product-name {
+        font-size: 2.3rem;
     }
 }
 
@@ -97,11 +133,5 @@
         .section-title {
             margin-bottom: 196px;
         }
-    }
-}
-
-@media screen and (min-width: 576px) and (max-width: 700px) {
-    .product-list .product-item .product-name {
-        font-size: 2.3rem;
     }
 }

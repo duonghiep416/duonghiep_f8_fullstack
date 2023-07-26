@@ -41,6 +41,10 @@ g-5 => 3 * spacer
     outline: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 :root {
     --container-width: 1200px;
     --container-padding: 20px;
