@@ -45,9 +45,10 @@ console.log("biggestNumber: " + biggestNumber);
 
 var a = -2,
     b = 2;
-if (a * b >= 0) {
+if (a === 0 || b === 0) console.log("Không kiểm tra được");
+if (a * b > 0) {
     console.log(`a, b là 2 số cùng dấu`);
-} else {
+} else if (a * b < 0) {
     console.log(`a, b là 2 số khác dấu`);
 }
 
