@@ -52,24 +52,19 @@ function calcElectricBill(kwh) {
     } else if (kwh <= 100) {
         result = 50 * level1 + (kwh - 50) * level2;
     } else if (kwh <= 200) {
-        result = 50 * level1 + 50 * level2 + (kwh - 100) * level3;
+        result = 50 * (level1 + level2) + (kwh - 100) * level3;
     } else if (kwh <= 300) {
-        result =
-            50 * level1 + 50 * level2 + 100 * level3 + (kwh - 200) * level4;
+        result = 50 * (level1 + level2) + 100 * level3 + (kwh - 200) * level4;
     } else if (kwh <= 400) {
         result =
-            50 * level1 +
-            50 * level2 +
-            100 * level3 +
-            100 * level4 +
+            50 * (level1 + level2) +
+            100 * (level3 + level4) +
             (kwh - 300) * level5;
     } else {
         result =
             50 * level1 +
             50 * level2 +
-            100 * level3 +
-            100 * level4 +
-            100 * level5 +
+            100 * (level3 + level4 + level5) +
             (kwh - 400) * level6;
     }
     return result;
