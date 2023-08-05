@@ -76,7 +76,7 @@ console.log(calcElectricBill(80));
 console.log(calcElectricBill(180));
 console.log(calcElectricBill(280));
 console.log(calcElectricBill(380));
-console.log(calcElectricBill(480));
+console.log(calcElectricBill(1000));
 
 // Bài 3: Cho trước số nguyên n. Tính giá trị biểu thức sau
 
@@ -90,7 +90,7 @@ function calcSum(n) {
     }
     return sum;
 }
-console.log(calcSum(5));
+console.log(calcSum(10));
 
 // Bài 4: Viết hàm kiểm tra số nguyên tố
 // Viết 1 hàm kiểm tra 1 số có phải số nguyên tố hay không?
@@ -177,7 +177,7 @@ drawMultiplyTable();
 
 function getSum(n) {
     if (n === 1) {
-        return -1;
+        return 1;
     } else {
         return getSum(n - 1) + 1 / n;
     }
