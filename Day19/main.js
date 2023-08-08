@@ -28,13 +28,14 @@ console.log(findMinMax([4, 5, 1, 10, 9, 7]));
 function isPrime(n) {
     n = +n;
     if (n <= 1 || typeof n !== "number" || n % 1 !== 0) return false;
-    for (var i = 2; i < Math.sqrt(n); i++) {
+    for (var i = 2; i <= Math.sqrt(n); i++) {
         if (n % i === 0) return false;
     }
     return true;
 }
 
 function avgPrimeOfArray(arr) {
+    if (arr.length === 0) return "Không có số nguyên tố";
     var arrPrime = [],
         avgPrime = 0;
     for (var i in arr) {
@@ -43,7 +44,6 @@ function avgPrimeOfArray(arr) {
             avgPrime += arr[i];
         }
     }
-
     return (avgPrime /= arrPrime.length);
 }
 
@@ -65,7 +65,7 @@ function filterArray(arr) {
     }
     return newArray;
 }
-
+var array = [1, 3, 3, 5, 7, 1, 3, 5, 7];
 console.log(filterArray(array));
 
 // Bài 4
