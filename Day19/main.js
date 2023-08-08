@@ -76,8 +76,12 @@ console.log(filterArray(array));
 function sortArray(arr, addElement) {
     arr.sort((a, b) => a - b);
     var indexAdd = 0;
+    if (addElement > arr[arr.length - 1]) {
+        arr.push(addElement);
+        return arr;
+    }
     for (var i = 0; i < arr.length - 1; i++) {
-        if (arr[i] < addElement && arr[i + 1] > addElement) {
+        if (arr[i] < addElement && arr[i + 1] >= addElement) {
             indexAdd = i + 1;
             break;
         }
@@ -86,6 +90,6 @@ function sortArray(arr, addElement) {
     return arr;
 }
 
-var numbers = [5, 1, 9, 8, 10];
-var element = 7;
+var numbers = [2, 1, 3, 9, 8, 10];
+var element = 3;
 console.log(sortArray(numbers, element));
