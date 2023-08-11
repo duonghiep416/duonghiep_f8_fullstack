@@ -11,7 +11,7 @@ function calcTaxiCost(distance) {
         level2 = 13500,
         level3 = 11000;
 
-    if (distance <= 0 || typeof distance !== "number") return "Không hợp lệ";
+    if (distance <= 0) return "Không hợp lệ";
 
     if (distance <= 1) {
         result = distance * level1;
@@ -24,12 +24,12 @@ function calcTaxiCost(distance) {
     return result;
 }
 // TEST
-console.log(calcTaxiCost(150));
-console.log(calcTaxiCost(20.5));
+console.log(calcTaxiCost(0.5));
+console.log(calcTaxiCost(3));
 console.log(calcTaxiCost(-20));
-console.log(calcTaxiCost(150));
+console.log(calcTaxiCost(20));
 console.log(calcTaxiCost("Hello F8"));
-console.log(calcTaxiCost(0));
+console.log(calcTaxiCost(130));
 
 // Bài 2: Tính tiền điện
 // Học viên viết chương trình tiền điện hàng tháng theo yêu cầu sau
@@ -70,8 +70,8 @@ function calcElectricBill(kwh) {
     return result;
 }
 
-console.log(calcElectricBill(-1));
-console.log(calcElectricBill(30));
+console.log(calcElectricBill(320));
+console.log(calcElectricBill(51));
 console.log(calcElectricBill(80));
 console.log(calcElectricBill(180));
 console.log(calcElectricBill(280));
@@ -83,7 +83,7 @@ console.log(calcElectricBill(1000));
 // S= 1*2 + 2*3 + 3*4 + ... + n*(n+1)
 
 function calcSum(n) {
-    if (n <= 0 || typeof n !== "number" || n % 1 !== 0) return "Không hợp lệ";
+    if (n <= 0 || n % 1 !== 0) return "Không hợp lệ";
     var sum = 0;
     for (var i = 1; i <= n; i++) {
         sum += i * (i + 1);
@@ -100,17 +100,16 @@ console.log(calcSum(10));
 // Gọi hàm trong câu điều kiện if else
 
 function isPrime(n) {
-    if (n <= 1 || typeof n !== "number" || n % 1 !== 0) return false;
+    if (n <= 1 || n % 1 !== 0) return false;
 
-    for (var i = 2; i < n; i++) {
+    for (var i = 2; i <= Math.sqrt(n); i++) {
         if (n % i === 0) {
             return false;
-            break;
         }
     }
     return true;
 }
-var n = 10;
+var n = 2;
 if (isPrime(n)) {
     console.log(`${n} là số nguyên tố.`);
 } else {
