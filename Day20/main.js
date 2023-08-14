@@ -5,15 +5,16 @@ function getDuplicateElements(arr1, arr2) {
     if (!Array.isArray(arr1) || !Array.isArray(arr2)) return "Không hợp lệ";
     var result = [];
     for (var i in arr1) {
-        if (arr2.includes(arr1[i])) {
+        if (arr2.includes(arr1[i]) && !result.includes(arr1[i])) {
             result.push(arr1[i]);
         }
     }
     return result;
 }
 
-var arrA = [1, 4, 3, 2];
-var arrB = [5, 2, 6, 7, 1];
+var arrA = [1, 4, 3, 2, 5, 3, 6, 8, 1];
+var arrB = [5, 2, 6, 7, 1, 3];
+
 console.log(getDuplicateElements(arrA, arrB));
 
 // Bài 2:
