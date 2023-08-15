@@ -75,30 +75,36 @@ function User(name, password, email) {
     this.email = email;
 }
 
-const data = [];
-function handleRegister(name, password, email) {
-    if (!name || !password || !email) return "Bạn chưa nhập đủ các trường";
-    var newUser = new User(name, password, email);
-    newUser.role = "user";
-    if (data.length === 0) {
-        data.push(newUser);
-    } else {
-        for (var i = 0; i < data.length; i++) {
-            if (data[i].email === email) return "Địa chỉ email đã được sử dụng";
-        }
-        data.push(newUser);
-    }
+function handleRegister() {
+    const data = [];
 
-    return data;
+    function pushUser(name, password, email) {
+        if (!name && !password && !email) return data;
+        if (!name || !password || !email) return "Bạn chưa nhập đủ các trường";
+        var newUser = new User(name, password, email);
+        newUser.role = "user";
+        if (data.length === 0) {
+            data.push(newUser);
+        } else {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].email === email)
+                    return "Địa chỉ email đã được sử dụng";
+            }
+            data.push(newUser);
+        }
+        return data;
+    }
+    return pushUser;
 }
-handleRegister("Nguyen Van A", "123456", "nguyenvana@email.com");
-handleRegister("Nguyen Van B", "123456", "nguyenvanb@email.com");
-handleRegister("Nguyen Van B", "123456", "nguyenvanb@email.com");
+const addUser = handleRegister();
+console.log(addUser("Nguyen Van A", "123456", "nguyenvana@email.com"));
+console.log(addUser("Nguyen Van B", "123456", "nguyenvanb@email.com"));
+// console.log(addUser("Nguyen Van B", "123456", "nguyenvanb@email.com"));
 function handleLogin(email, password) {
-    var dataLogin = data.filter(function (user) {
+    var dataLogin = addUser().filter(function (user) {
         return user.email === email && user.password === password;
     });
     if (dataLogin.length === 0) return "Thông tin đăng nhập không hợp lệ";
     return dataLogin;
 }
-console.log(handleLogin("nguyenvana@email.com", "123456"));
+console.log(handleLogin("nguyenvanb@email.com", "123456"));
