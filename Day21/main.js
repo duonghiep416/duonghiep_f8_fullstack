@@ -96,6 +96,7 @@ function handleRegister() {
     }
     return pushUser;
 }
+
 const addUser = handleRegister();
 console.log(addUser("Nguyen Van A", "123456", "nguyenvana@email.com"));
 console.log(addUser("Nguyen Van B", "123456", "nguyenvanb@email.com"));
