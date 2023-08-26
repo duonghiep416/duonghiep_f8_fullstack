@@ -70,7 +70,7 @@ const app = {
                     todoList.insertBefore(formCopy, elementEdit);
                     inputFormCopy.focus();
                     inputFormCopy.placeholder = "Update task";
-                    inputFormCopy.value = elementEdit.value;
+                    inputFormCopy.value = elementEdit.children[0].innerHTML;
                     elementEdit.style.display = "none";
                     formCopy.addEventListener("submit", (e) => {
                         e.preventDefault();
