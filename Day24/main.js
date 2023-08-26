@@ -68,6 +68,7 @@ const app = {
                     const formCopy = formEdit.cloneNode(true);
                     const inputFormCopy = formCopy.querySelector("input");
                     todoList.insertBefore(formCopy, elementEdit);
+                    inputFormCopy.focus();
                     elementEdit.style.display = "none";
                     formCopy.addEventListener("submit", (e) => {
                         e.preventDefault();
