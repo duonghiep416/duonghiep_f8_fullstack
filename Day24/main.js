@@ -6,11 +6,7 @@ const addBtn = $(".todo-form .todo-btn");
 
 const todoList = $(".todo-list");
 const todoForm = $(".todo-form");
-const data = [
-    {
-        title: "Hello",
-    },
-];
+const data = [];
 
 const formEdit = document.createElement("form");
 formEdit.classList.add("todo-form");
@@ -75,7 +71,9 @@ const app = {
                     elementEdit.style.display = "none";
                     formCopy.addEventListener("submit", (e) => {
                         e.preventDefault();
-                        data[i].title = inputFormCopy.value;
+                        if (inputFormCopy.value) {
+                            data[i].title = inputFormCopy.value;
+                        }
                         elementEdit.style.display = "block";
                         app.render();
                     });
