@@ -93,9 +93,6 @@ button {
     gap: 5px;
 }
 
-.tab-text.line {
-}
-
 .form-group {
     display: flex;
     flex-direction: column;

@@ -205,3 +205,51 @@ const app = {
 };
 
 app.start();
+
+//Debounce
+
+function debounce(callback, wait) {
+    let timeOutId;
+    return function () {
+        if (timeOutId) {
+            clearTimeout(timeOutId);
+        }
+        timeOutId = setTimeout(callback, wait);
+    };
+}
+
+const debounceLog = debounce(() => {
+    console.log("Hello World");
+}, 5000);
+
+debounceLog();
+debounceLog();
+debounceLog();
+
+// Throttle
+function throttle(callback, wait) {
+    let isThrottling = false;
+    return function () {
+        if (isThrottling) return;
+        isThrottling = true;
+        setTimeout(() => {
+            callback();
+            isThrottling = false;
+        }, wait);
+    };
+}
+
+const throttleLog = throttle(() => {
+    console.log("Hello World");
+}, 500);
+// 1 time
+throttleLog();
+throttleLog();
+throttleLog();
+// 2 times
+setTimeout(throttleLog, 600);
+setTimeout(throttleLog, 700);
+setTimeout(throttleLog, 800);
+setTimeout(throttleLog, 1100);
+// 3 times
+setTimeout(throttleLog, 1200);
