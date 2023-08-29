@@ -11,11 +11,12 @@ const data = [];
 const formEdit = document.createElement("form");
 formEdit.classList.add("todo-form");
 formEdit.innerHTML = `<input
-type="text"
-name="task"
-placeholder="What is the task today?"
-/>
-<button type="submit" class="todo-btn">Add task</button>`;
+                type="text"
+                name="task"
+                placeholder="What is the task today?"
+                />
+                <button type="submit" class="todo-btn">Add task</button>    
+                `;
 const app = {
     render: function () {
         let html = data
