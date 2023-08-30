@@ -1,3 +1,5 @@
+// Còn bug khi ấn nút prev do không có item nào ở đằng trước, sau khi transition thực hiện xong thì item cuối mới được đẩy lên đầu(Chưa fix được)
+// Do làm slide infinity nên còn bug ở chức năng click vào dot chuyển slide nên đã tắt bỏ chức năng đó hoàn thiện sau
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const header = $("header");
@@ -119,9 +121,6 @@ const app = {
         let flag = false;
         let offsetXMouseDown;
         let distance;
-        function moveSlide(e) {
-            console.log(e.clientX);
-        }
         imgList.forEach((imgItem) => {
             imgItem.addEventListener("mousedown", (e) => {
                 e.preventDefault();
@@ -175,7 +174,7 @@ const app = {
             });
             app.activeDot();
         });
-        setInterval(app.next, 5000);
+        // setInterval(app.next, 5000);
     },
 
     activeDot: function (index) {
