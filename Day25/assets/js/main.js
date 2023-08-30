@@ -32,11 +32,11 @@ const sliderInfos = [
         name: "Avengers Endgame",
         src: "./assets/img/endgame.png",
     },
-    {
-        id: 5,
-        name: "Wednesday",
-        src: "./assets/img/wednesday.jpg",
-    },
+    // {
+    //     id: 5,
+    //     name: "Wednesday",
+    //     src: "./assets/img/wednesday.jpg",
+    // },
 ];
 
 function throttle(callback, wait) {
@@ -52,7 +52,7 @@ function throttle(callback, wait) {
 }
 
 const imageWidth = 100;
-slideWrapper.style.width = `${imageWidth * 5}vw`;
+slideWrapper.style.width = `${imageWidth * sliderInfos.length}vw`;
 slideMain.style.width = `${imageWidth}vw`;
 let direction;
 let active;
@@ -192,9 +192,14 @@ const app = {
 
     // selectSlide: function () {
     //     const listDot = $$(".dot-item");
+    //     let count = 0;
     //     listDot.forEach((item, index) => {
     //         item.addEventListener("click", () => {
-    //             app.activeDot(index);
+    //             while (count <= indexItemSelected) {
+    //                 app.activeDot(index);
+    //                 app.next();
+    //                 count++;
+    //             }
     //         });
     //     });
     // },
