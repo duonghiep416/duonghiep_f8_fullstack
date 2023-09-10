@@ -154,8 +154,12 @@ function handleCart() {
             ".quantity-product-cart"
         );
         newQuantityProduct.forEach((input, index) => {
-            carts[index].quantity = +input.value;
             carts[index].total = carts[index].quantity * carts[index].price;
+            if (+input.value <= 0) {
+                carts.splice(index, 1);
+            } else if (+input.value > 0) {
+                carts[index].quantity = +input.value;
+            }
         });
 
         saveCartToLocalStorage();
