@@ -107,7 +107,7 @@ function renderCart() {
             <td>${cart.id}</td>
             <td>${cart.name}</td>
             <td>${cart.price}</td>
-            <td>${cart.quantity}</td>
+            <td><input type="number" value="${cart.quantity}" class="quantity-product-cart"/></td>
             <td>${cart.total}</td>
             <td>
                 <button class="deleteItem">Xóa</button>
@@ -150,6 +150,17 @@ function handleCart() {
     const updateBtn = document.querySelector(".update-btn");
     const deleteAllBtn = document.querySelector(".delete-all-btn");
     updateBtn.addEventListener("click", () => {
+        const newQuantityProduct = document.querySelectorAll(
+            ".quantity-product-cart"
+        );
+        newQuantityProduct.forEach((input, index) => {
+            carts[index].quantity = +input.value;
+            carts[index].total = carts[index].quantity * carts[index].price;
+        });
+
+        saveCartToLocalStorage();
+        storedCarts = JSON.parse(localStorage.getItem("carts"));
+        renderCart();
         alert("Cập nhật giỏ hàng thành công");
     });
     deleteAllBtn.addEventListener("click", () => {
