@@ -143,18 +143,24 @@ function dragLesson() {
 
         if (item === placeholder) return;
 
-        if (placeholder) {
+        if (placeholder && placeholder.parentNode === courseContent) {
             courseContent.removeChild(placeholder);
         }
 
         placeholder = createPlaceholder();
-        courseContent.insertBefore(placeholder, item);
+        if (
+            item.parentNode === courseContent &&
+            placeholder.parentNode === courseContent
+        ) {
+            courseContent.insertBefore(placeholder, item);
+        }
     });
 
     courseContent.addEventListener("dragend", () => {
-        if (placeholder) {
+        if (placeholder && placeholder.parentNode === courseContent) {
             courseContent.removeChild(placeholder);
         }
+
         draggingItem = null;
         createModule();
         renderCourseContent();
