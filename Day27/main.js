@@ -143,7 +143,6 @@ function handleCart() {
         cartAction.innerHTML = "";
         return;
     }
-    const main = document.querySelector(".main");
     const html = `<button class="update-btn">Cập nhật giỏ hàng</button>
     <button class="delete-all-btn">Xóa giỏ hàng</button>`;
     cartAction.innerHTML = html;
