@@ -11,6 +11,7 @@ const btnUnderline = $("#btn-underline");
 const btnItalic = $("#btn-italic");
 const btnControlStyle = $(".btn-control-style");
 const inputNameFile = $(".name-file");
+const inputTypeColor = $('input[type="color"]');
 let isActiveBoxDownload = false;
 function activeBoxDownload() {
     if (!isActiveBoxDownload) {
@@ -88,6 +89,10 @@ textDownloadBtn.addEventListener("click", () => {
 
 pdfDownloadBtn.addEventListener("click", () => {
     createLinkDownloadPdf();
+});
+
+inputTypeColor.addEventListener("input", () => {
+    document.execCommand("foreColor", false, inputTypeColor.value);
 });
 
 // //Check caret
