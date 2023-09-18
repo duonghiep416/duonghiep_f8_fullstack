@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    padding-top: 20px;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(0.95);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.name-file {
+    outline: none;
+    font-size: 17px;
+}
+
+.button-container {
+    position: relative;
+    display: flex;
+    gap: 40px;
+}
+
+.main-control #file-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 7px;
+    width: 70px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.main-control #file-btn::after {
+    content: "";
+    display: inline-block;
+    border: 6px solid transparent;
+    border-top-color: #fff;
+    transform: translateY(25%);
+}
+
+.btn-dropdown {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 47px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition: 0.2s;
+    overflow: hidden;
+}
+
+.btn-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-dropdown button {
+    width: 100%;
+    background-color: #fff;
+    text-align: start;
+    padding: 10px;
+    font-size: 17px;
+    transition-property: background-color, color;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-dropdown button:hover {
+    background-color: #616161;
+    color: #fff;
+}
+
+.style-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.style-control input[type="color"],
+.style-control button {
+    min-width: 40px;
+    height: 40px;
+    font-size: 17px;
+    transition-property: background-color, color;
+    transition: 0.3s;
+}
+
+.style-control button.active {
+    background-color: #60ee3d;
+    color: #fff;
+}
+
+.style-control #btn-bold {
+    font-weight: 600;
+}
+
+.style-control #btn-underline {
+    text-decoration: underline;
+}
+.style-control #btn-italic {
+    font-style: italic;
+}
+
+.text-editor {
+    width: 100%;
+    min-height: 200px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    outline: none;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.text-editor.active-bold {
+    font-weight: bold;
+}
+
+.text-editor.active-italic {
+    font-style: italic;
+}
+
+.text-editor.active-underline {
+    text-decoration: underline;
+}
+
+.name-file {
+    padding: 0 10px;
+}
+
+.counter {
+    margin-top: 20px;
+    text-align: end;
+}
+
+.counter .quantity-words {
+    margin-right: 10px;
+}
