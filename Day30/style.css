@@ -151,7 +151,7 @@ button:hover {
     border-radius: 10px;
 }
 
-.text-editor.active-bold {
+/* .text-editor.active-bold {
     font-weight: bold;
 }
 
@@ -161,7 +161,7 @@ button:hover {
 
 .text-editor.active-underline {
     text-decoration: underline;
-}
+} */
 
 .name-file {
     padding: 0 10px;

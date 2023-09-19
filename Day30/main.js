@@ -26,7 +26,7 @@ function activeBoxDownload() {
 fileBtn.addEventListener("click", activeBoxDownload);
 
 function countWord() {
-    if (textEditor.innerText.trim() === "") {
+    if (textEditor.innerText === "") {
         $(".quantity-words").innerText = 0;
         $(".quantity-characters").innerText = 0;
         return;
@@ -61,6 +61,7 @@ function getNameFile() {
 }
 inputNameFile.addEventListener("input", getNameFile);
 
+// Tạo link download txt
 function createLinkDownloadTxt() {
     const nameFile = getNameFile();
     const blob = new Blob([textEditor.innerText], { type: "text/plain" });
@@ -71,6 +72,7 @@ function createLinkDownloadTxt() {
     return link;
 }
 
+// Tạo link download PDF
 function createLinkDownloadPdf() {
     const nameFile = getNameFile();
 
@@ -95,23 +97,61 @@ inputTypeColor.addEventListener("input", () => {
     document.execCommand("foreColor", false, inputTypeColor.value);
 });
 
+// Xóa định dạng mặc định của văn bản khi paste
+textEditor.addEventListener("paste", (e) => {
+    e.preventDefault();
+    var text = e.clipboardData.getData("text/plain");
+
+    document.execCommand("insertText", false, text);
+});
+
 // //Check caret
-// textEditor.addEventListener("keyup", checkcaret); // Every character written
+textEditor.addEventListener("keyup", () => {
+    getCaretPosition(textEditor);
+});
+textEditor.addEventListener("mouseup", () => {
+    getCaretPosition(textEditor);
+});
 
-// textEditor.addEventListener("mousedown", checkcaret); // Click down
-// textEditor.addEventListener("touchstart", checkcaret); // Mobile
-// textEditor.addEventListener("input", checkcaret); // Other input events
-// textEditor.addEventListener("paste", checkcaret); // Clipboard actions
-// textEditor.addEventListener("cut", checkcaret);
-// textEditor.addEventListener("mousemove", checkcaret); // Selection, dragging text
-// textEditor.addEventListener("select", checkcaret); // Some browsers support this event
-// textEditor.addEventListener("selectstart", checkcaret); // Some browsers support this event
+textEditor.addEventListener("input", () => {
+    getCaretPosition(textEditor);
+});
+textEditor.addEventListener("paste", () => {
+    getCaretPosition(textEditor);
+});
+textEditor.addEventListener("cut", () => {
+    getCaretPosition(textEditor);
+});
 
-// let pos = 0;
-// function checkcaret() {
-//     const newPos = textEditor.selectionStart;
-//     if (newPos !== pos) {
-//         console.log("change to " + newPos);
-//         pos = newPos;
-//     }
+textEditor.addEventListener("select", () => {
+    getCaretPosition(textEditor);
+});
+textEditor.addEventListener("selectstart", () => {
+    getCaretPosition(textEditor);
+});
+
+function getCaretPosition(element) {
+    let caretPosition = 0;
+    let selection = window.getSelection();
+
+    if (selection.rangeCount > 0) {
+        let range = selection.getRangeAt(0);
+        let preCaretRange = range.cloneRange();
+        preCaretRange.selectNodeContents(element);
+        preCaretRange.setEnd(range.endContainer, range.endOffset);
+        caretPosition = preCaretRange.toString().length;
+    }
+    return caretPosition;
+}
+
+// function setCaretPosition(element, caretPos) {
+//     let range = document.createRange();
+//     let sel = window.getSelection();
+
+//     range.setStart(element.innerText, caretPos);
+//     range.collapse(true);
+
+//     sel.addRange(range);
+
+//     element.focus();
 // }
