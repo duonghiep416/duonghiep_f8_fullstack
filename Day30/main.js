@@ -41,7 +41,7 @@ function countWord() {
     }
     const cleanedText = textEditor.innerText.replace(/\s+/g, " ");
     const quantityWords = cleanedText.trim().split(" ").length;
-    const quantityCharacters = cleanedText.split("").length;
+    const quantityCharacters = textEditor.innerText.length;
     $(".quantity-words").innerText = quantityWords;
     $(".quantity-characters").innerText = quantityCharacters;
 }
