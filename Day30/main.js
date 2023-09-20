@@ -23,16 +23,25 @@ function activeBoxDownload() {
     }
 }
 
-fileBtn.addEventListener("click", activeBoxDownload);
+fileBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    activeBoxDownload();
+});
+
+document.addEventListener("click", (e) => {
+    btnDropdown.classList.remove("active");
+    isActiveBoxDownload = false;
+});
 
 function countWord() {
-    if (textEditor.innerText === "") {
+    if (textEditor.innerText.length === 0) {
         $(".quantity-words").innerText = 0;
         $(".quantity-characters").innerText = 0;
         return;
     }
-    const quantityWords = textEditor.innerText.trim().split(" ").length;
-    const quantityCharacters = textEditor.innerText.split("").length;
+    const cleanedText = textEditor.innerText.replace(/\s+/g, " ");
+    const quantityWords = cleanedText.trim().split(" ").length;
+    const quantityCharacters = cleanedText.split("").length;
     $(".quantity-words").innerText = quantityWords;
     $(".quantity-characters").innerText = quantityCharacters;
 }
