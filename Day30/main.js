@@ -34,7 +34,7 @@ document.addEventListener("click", (e) => {
 });
 
 function countWord() {
-    if (textEditor.innerText.length === 0) {
+    if (textEditor.innerText.length === 0 || textEditor.innerText === "\n") {
         $(".quantity-words").innerText = 0;
         $(".quantity-characters").innerText = 0;
         return;
