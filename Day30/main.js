@@ -49,10 +49,7 @@ function countWord() {
     $(".quantity-words").innerText = quantityWords;
     $(".quantity-characters").innerText = quantityCharacters;
 }
-textEditor.addEventListener("input", () => {
-    console.log(textEditor.innerText);
-    countWord();
-});
+textEditor.addEventListener("input", countWord);
 
 function setBold() {
     document.execCommand("bold", false, null);
