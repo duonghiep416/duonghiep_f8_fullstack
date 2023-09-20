@@ -34,7 +34,11 @@ document.addEventListener("click", (e) => {
 });
 
 function countWord() {
-    if (textEditor.innerText.length === 0 || textEditor.innerText === "\n") {
+    if (
+        textEditor.innerText.length === 0 ||
+        textEditor.innerText === "\n" ||
+        textEditor.innerText.trim() === ""
+    ) {
         $(".quantity-words").innerText = 0;
         $(".quantity-characters").innerText = 0;
         return;
@@ -45,7 +49,10 @@ function countWord() {
     $(".quantity-words").innerText = quantityWords;
     $(".quantity-characters").innerText = quantityCharacters;
 }
-textEditor.addEventListener("input", countWord);
+textEditor.addEventListener("input", () => {
+    console.log(textEditor.innerText);
+    countWord();
+});
 
 function setBold() {
     document.execCommand("bold", false, null);
