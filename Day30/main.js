@@ -12,6 +12,7 @@ const btnItalic = $("#btn-italic");
 const btnControlStyle = $(".btn-control-style");
 const inputNameFile = $(".name-file");
 const inputTypeColor = $('input[type="color"]');
+const newBtn = $("#new-btn");
 let isActiveBoxDownload = false;
 function activeBoxDownload() {
     if (!isActiveBoxDownload) {
@@ -96,6 +97,14 @@ function createLinkDownloadPdf() {
 
     html2pdf().set(opt).from(textEditor).save();
 }
+
+function createNewFile() {
+    textEditor.innerText = "";
+    $(".quantity-words").innerText = 0;
+    $(".quantity-characters").innerText = 0;
+    inputNameFile.value = "untitled";
+}
+newBtn.addEventListener("click", createNewFile);
 
 textDownloadBtn.addEventListener("click", () => {
     const link = createLinkDownloadTxt();
