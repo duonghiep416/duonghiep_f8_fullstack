@@ -28,28 +28,50 @@ class F8 {
             if (matches && matches.length >= 3) {
                 const eventName = matches[1]; // Lấy tên sự kiện
                 const eventValue = matches[2]; // Lấy giá trị sự kiện
-
                 const valueRegex = /([a-zA-Z-]+)([+\-]{2})/;
                 const valueMatches = eventValue.match(valueRegex);
                 if (valueMatches && valueMatches.length >= 3) {
                     const variableName = valueMatches[1]; // Lấy tên biến ('count')
                     const operator = valueMatches[2]; // Lấy phép toán ('--' hoặc '++')
-
+                    const elChange = [...templateEl.content.children].filter(
+                        (el) => el.innerHTML.includes(`{{${variableName}}}`)
+                    );
                     child.addEventListener(eventName, () => {
                         if (operator === "--") {
                             data[variableName]--;
-                            console.log(data);
+                            elChange.forEach((el) => {
+                                const text = el.innerHTML.slice(
+                                    0,
+                                    el.innerHTML.indexOf(":") + 1
+                                );
+                                el.innerHTML = text + " " + data[variableName];
+                                document.querySelector(el.tagName).innerHTML =
+                                    el.innerHTML;
+                            });
                         } else if (operator === "++") {
                             data[variableName]++;
-                            console.log(data);
+                            elChange.forEach((el) => {
+                                const text = el.innerHTML.slice(
+                                    0,
+                                    el.innerHTML.indexOf(":") + 1
+                                );
+                                el.innerHTML = text + " " + data[variableName];
+                                document.querySelector(el.tagName).innerHTML =
+                                    el.innerHTML;
+                            });
                         }
                     });
                 } else {
                     console.log("Không tìm thấy sự kiện.");
                 }
             }
-        });
 
+            if (child.getAttribute("v-on:dblclick") === "title='Hello F8'") {
+                child.addEventListener("dblclick", () => {
+                    document.querySelector("h1").innerHTML = "Hello F8";
+                });
+            }
+        });
         customElements.define(
             name,
             class extends HTMLElement {
@@ -64,11 +86,6 @@ class F8 {
         );
     }
 }
-
-// new F8();
-
-// F8.component("counter-app");
-// console.log(F8);
 
 function getVariables(html) {
     const results = html.match(/{{.+?}}/g);
