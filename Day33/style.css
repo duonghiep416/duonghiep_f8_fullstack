@@ -1,0 +1,21 @@
+body {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.stop-btn,
+.btn {
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #549c24;
+    margin-bottom: 20px;
+}
