@@ -54,47 +54,52 @@ function speechToText() {
             case "bản đồ":
                 window.open("https://maps.google.com");
                 break;
-            case "video ai chung tình được mãi":
-                window.open("https://www.youtube.com/watch?v=eZpJdO22jZ0");
-                break;
-            case "mở video ai chung tình được mãi":
-                window.open("https://www.youtube.com/watch?v=eZpJdO22jZ0");
-                break;
-            case "xem video ai chung tình được mãi":
-                window.open("https://www.youtube.com/watch?v=eZpJdO22jZ0");
-                break;
-            // Google maps
-            case "chỉ đường vinhomes smart city tây mỗ":
-                window.open("https://maps.app.goo.gl/Yv2wngLunmwcgJHN6");
-                break;
-            case "chỉ đường tới vinhomes smart city tây mỗ":
-                window.open("https://maps.app.goo.gl/Yv2wngLunmwcgJHN6");
-                break;
-            case "tới vinhomes smart city tây mỗ":
-                window.open("https://maps.app.goo.gl/Yv2wngLunmwcgJHN6");
-                break;
-            case "đường tới vinhomes smart city tây mỗ":
-                window.open("https://maps.app.goo.gl/Yv2wngLunmwcgJHN6");
-                break;
-            case "bài hát ai chung tình được mãi":
-                window.open(
-                    "https://zingmp3.vn/bai-hat/Ai-Chung-Tinh-Duoc-Mai-Dinh-Tung-Huy-ACV/ZUB790F8.html"
-                );
-                break;
-            case "mở bài hát ai chung tình được mãi":
-                window.open(
-                    "https://zingmp3.vn/bai-hat/Ai-Chung-Tinh-Duoc-Mai-Dinh-Tung-Huy-ACV/ZUB790F8.html"
-                );
-                break;
-            case "nghe bài hát ai chung tình được mãi":
-                window.open(
-                    "https://zingmp3.vn/bai-hat/Ai-Chung-Tinh-Duoc-Mai-Dinh-Tung-Huy-ACV/ZUB790F8.html"
-                );
-                break;
-
             default:
-                action.innerHTML =
-                    "<b>Kết quả: Không thực hiện được yêu cầu</b>";
+                if (
+                    transcript.includes("chỉ đường ") ||
+                    transcript.includes("chỉ đường tới ") ||
+                    transcript.includes("đường tới ") ||
+                    transcript.includes("tới ")
+                ) {
+                    transcript = transcript
+                        .replace("chỉ đường ", "")
+                        .replace("chỉ đường tới ", "")
+                        .replace("đường tới ", "")
+                        .replace("tới ", "");
+                    window.open(
+                        `https://www.google.com/maps/place/${transcript}/`
+                    );
+                } else if (
+                    transcript.includes("bài hát ") ||
+                    transcript.includes("mở bài hát ") ||
+                    transcript.includes("mở bài hát, ") ||
+                    transcript.includes("nghe bài hát ")
+                ) {
+                    transcript = transcript
+                        .replace("mở bài hát, ", "")
+                        .replace("nghe bài hát ", "")
+                        .replace("bài hát ", "");
+
+                    window.open(
+                        `https://zingmp3.vn/tim-kiem/tat-ca?q=${transcript}`
+                    );
+                } else if (
+                    transcript.includes("video ") ||
+                    transcript.includes("mở video ") ||
+                    transcript.includes("xem video ")
+                ) {
+                    transcript = transcript
+                        .replace("xem video ", "")
+                        .replace("mở video ", "")
+                        .replace("video ", "");
+
+                    window.open(
+                        `https://www.youtube.com/results?search_query=${transcript}`
+                    );
+                } else {
+                    action.innerHTML =
+                        "<b>Kết quả: Không thực hiện được yêu cầu</b>";
+                }
         }
     };
 }
