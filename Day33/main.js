@@ -76,6 +76,7 @@ function speechToText() {
                     transcript.includes("nghe bài hát ")
                 ) {
                     transcript = transcript
+                        .replace("mở bài hát ", "")
                         .replace("mở bài hát, ", "")
                         .replace("nghe bài hát ", "")
                         .replace("bài hát ", "");
