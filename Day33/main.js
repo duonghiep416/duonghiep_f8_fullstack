@@ -1,7 +1,7 @@
 const button = document.querySelector(".btn");
 const output = document.querySelector(".output");
 const action = document.querySelector(".action");
-const stopBtn = document.querySelector(".stop-btn");
+// const stopBtn = document.querySelector(".stop-btn");
 function speechToText() {
     var transcript = null;
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -13,14 +13,16 @@ function speechToText() {
 
     recognition.onstart = function () {
         action.innerHTML = "Đang nghe, vui lòng nói yêu cầu của bạn...";
-        stopBtn.removeAttribute("hidden");
-        stopBtn.addEventListener("click", function () {
-            recognition.stop();
-        });
+        button.style.background = "orange";
+        // stopBtn.removeAttribute("hidden");
+        // stopBtn.addEventListener("click", function () {
+        //     recognition.stop();
+        // });
     };
 
     recognition.onspeechend = function () {
         action.innerHTML = "Dừng nghe, hi vọng kết quả theo ý bạn";
+        button.style.background = "#549c24";
         recognition.stop();
     };
 
@@ -29,8 +31,12 @@ function speechToText() {
         output.innerHTML = "<b>Kết quả: </b>" + transcript;
     };
     recognition.onend = function (event) {
-        stopBtn.setAttribute("hidden", "");
-        transcript = transcript.toLowerCase().slice(0, -1);
+        // stopBtn.setAttribute("hidden", "");
+        transcript = transcript
+            .toLowerCase()
+            .replaceAll(".", "")
+            .replaceAll(",", "")
+            .replaceAll("?", "");
         switch (transcript) {
             // Youtube
             case "youtube":
@@ -72,12 +78,10 @@ function speechToText() {
                 } else if (
                     transcript.includes("bài hát ") ||
                     transcript.includes("mở bài hát ") ||
-                    transcript.includes("mở bài hát, ") ||
                     transcript.includes("nghe bài hát ")
                 ) {
                     transcript = transcript
                         .replace("mở bài hát ", "")
-                        .replace("mở bài hát, ", "")
                         .replace("nghe bài hát ", "")
                         .replace("bài hát ", "");
 
