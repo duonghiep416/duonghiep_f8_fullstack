@@ -66,6 +66,7 @@ async function render() {
         `;
     showTaskComplete();
     removeTodo();
+    editTodo();
     checkComplete();
 }
 
@@ -238,3 +239,41 @@ function search() {
     });
 }
 search();
+
+function editTodo() {
+    let isEdit = false;
+    const editBtnsUnfinished = taskList.querySelectorAll(".edit-btn");
+    editBtnsUnfinished.forEach((editBtn, i) => {
+        editBtn.addEventListener("click", async (e) => {
+            isEdit = true;
+            e.stopPropagation();
+            addTodoPopup.classList.remove("hide");
+            const data = await getTodo();
+            const todoUnfinished = data.filter((todo) => {
+                return todo.completed === false;
+            });
+            addTodoWrapper
+                .querySelector("input")
+                .setAttribute("placeholder", "Edit todos");
+            addTodoWrapper.querySelector("input").value =
+                todoUnfinished[i].title;
+            addTodoWrapper.querySelector("input").focus();
+            saveBtn.addEventListener("click", async (e) => {
+                if (isEdit) {
+                    const value = addTodoWrapper.querySelector("input").value;
+                    const data = await getTodo();
+                    const todoUnfinished = data.filter((todo) => {
+                        return todo.completed === false;
+                    });
+                    await updateTodo(todoUnfinished[i].id, {
+                        title: value,
+                    });
+                    addTodoPopup.classList.add("hide");
+                    addTodoWrapper.querySelector("input").value = "";
+                    render();
+                    isEdit = false;
+                }
+            });
+        });
+    });
+}
