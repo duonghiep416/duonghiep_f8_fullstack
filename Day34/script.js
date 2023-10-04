@@ -93,15 +93,13 @@ async function render() {
         </button>
         <div class="list-unfinished-container hide">${todoFinishedHtml}</div>
         `;
-}
-
-(async () => {
-    await render();
     showTaskComplete();
     removeTodo();
     editTodo();
     checkComplete();
-})();
+}
+
+render();
 
 function addTodo() {
     let isAdd = false;
