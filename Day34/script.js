@@ -16,6 +16,35 @@ const getTodo = async () => {
     return data;
 };
 
+const postTodo = async (data) => {
+    const response = await fetch(`${apiUrl}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    return response.json();
+};
+
+const deleteTodo = async (id) => {
+    const response = await fetch(`${apiUrl}/${id}`, {
+        method: "DELETE",
+    });
+    return response.json();
+};
+
+const updateTodo = async (id, data) => {
+    const response = await fetch(`${apiUrl}/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    return response.json();
+};
+
 async function render() {
     const taskItemHtml = `
         <div class="task-action-list">
@@ -64,45 +93,23 @@ async function render() {
         </button>
         <div class="list-unfinished-container hide">${todoFinishedHtml}</div>
         `;
+}
+
+(async () => {
+    await render();
     showTaskComplete();
     removeTodo();
     editTodo();
     checkComplete();
-}
-
-render();
-
-const postTodo = async (data) => {
-    const response = await fetch(`${apiUrl}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    });
-    return response.json();
-};
-
-const deleteTodo = async (id) => {
-    const response = await fetch(`${apiUrl}/${id}`, {
-        method: "DELETE",
-    });
-    return response.json();
-};
-
-const updateTodo = async (id, data) => {
-    const response = await fetch(`${apiUrl}/${id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    });
-    return response.json();
-};
+})();
 
 function addTodo() {
     let isAdd = false;
+    let lt = /</g,
+        gt = />/g,
+        ap = /'/g,
+        ic = /"/g;
+
     // Ẩn/ Hiện popup add
     addBtn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -126,7 +133,13 @@ function addTodo() {
     });
     saveBtn.addEventListener("click", async (e) => {
         if (isAdd) {
-            const value = addTodoWrapper.querySelector("input").value;
+            let value = addTodoWrapper.querySelector("input").value;
+            value = value
+                .toString()
+                .replace(lt, "&lt;")
+                .replace(gt, "&gt;")
+                .replace(ap, "&#39;")
+                .replace(ic, "&#34;");
             const data = {
                 completed: false,
             };
@@ -242,6 +255,10 @@ search();
 
 function editTodo() {
     let isEdit = false;
+    let lt = /</g,
+        gt = />/g,
+        ap = /'/g,
+        ic = /"/g;
     const editBtnsUnfinished = taskList.querySelectorAll(".edit-btn");
     editBtnsUnfinished.forEach((editBtn, i) => {
         editBtn.addEventListener("click", async (e) => {
@@ -260,7 +277,13 @@ function editTodo() {
             addTodoWrapper.querySelector("input").focus();
             saveBtn.addEventListener("click", async (e) => {
                 if (isEdit) {
-                    const value = addTodoWrapper.querySelector("input").value;
+                    let value = addTodoWrapper.querySelector("input").value;
+                    value = value
+                        .toString()
+                        .replace(lt, "&lt;")
+                        .replace(gt, "&gt;")
+                        .replace(ap, "&#39;")
+                        .replace(ic, "&#34;");
                     const data = await getTodo();
                     const todoUnfinished = data.filter((todo) => {
                         return todo.completed === false;
