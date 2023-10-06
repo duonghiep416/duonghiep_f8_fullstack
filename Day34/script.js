@@ -185,13 +185,18 @@ function removeTodo() {
         });
     });
 }
-
+let isShowTaskCompleted = false;
 function showTaskComplete() {
     const showTaskCompleted = document.querySelector(".show-task-completed");
     const listCompletedContainer = document.querySelector(
         ".list-unfinished-container"
     );
+    if (isShowTaskCompleted) {
+        listCompletedContainer.classList.remove("hide");
+        showTaskCompleted.style.background = "#047857";
+    }
     showTaskCompleted.addEventListener("click", (e) => {
+        isShowTaskCompleted = !isShowTaskCompleted;
         listCompletedContainer.classList.toggle("hide");
         if (listCompletedContainer.classList.contains("hide")) {
             showTaskCompleted.style.background = "#9ca3af";
