@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quiz</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="loading-container hide">
+            <div class="loader">
+                <div class="loader-inner">
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <main class="main">
+            <div class="action-container">
+                <button class="start-btn btn">Start</button>
+            </div>
+            <div class="quiz-container animate__animated hide">
+                <div class="form__group field nickname-input-container">
+                    <input
+                        type="input"
+                        class="form__field name-input"
+                        placeholder="Name"
+                        name="name"
+                        id="name"
+                        required
+                    />
+                    <label for="name" class="form__label">Name</label>
+                    <button type="submit" class="submit-name-btn btn">
+                        Submit
+                    </button>
+                    <button type="submit" class="back-btn btn">Back</button>
+                </div>
+                <div class="question-list hide"></div>
+            </div>
+        </main>
+        <audio src="" class="audio"></audio>
+        <script type="module" src="./js/main.js"></script>
+    </body>
+</html>
+<!-- Bug: Loading -->
