@@ -24,7 +24,7 @@ const handleGetArticle = async () => {
             const date = new Date(createdAt);
             const dateString = `${date.getDate()} - ${
                 date.getMonth() + 1
-            } - ${date.getFullYear()}`;
+            } - ${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}`;
             // postContainer
             const postContainer = document.createElement("div");
             postContainer.classList.add("post-container");
