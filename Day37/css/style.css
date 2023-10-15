@@ -500,3 +500,7 @@ p.content-article {
     margin: 0;
     font-size: 18px;
 }
+
+.date {
+    margin-left: 20px;
+}
