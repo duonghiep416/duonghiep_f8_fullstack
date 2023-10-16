@@ -19,12 +19,16 @@ const handleGetArticle = async () => {
     if (response.status_code === "SUCCESS") {
         const { data: posts } = response;
 
-        posts.map((post) => {
+        posts.map((post, index) => {
             const { createdAt } = post;
             const date = new Date(createdAt);
             const dateString = `${date.getDate()} - ${
                 date.getMonth() + 1
-            } - ${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}`;
+            } - ${date.getFullYear()} | ${date.getHours()}:${
+                date.getMinutes() < 10
+                    ? "0" + date.getMinutes()
+                    : date.getMinutes()
+            }`;
             // postContainer
             const postContainer = document.createElement("div");
             postContainer.classList.add("post-container");
@@ -36,11 +40,12 @@ const handleGetArticle = async () => {
             const dateContainer = document.createElement("span");
             dateContainer.classList.add("date");
             dateContainer.innerText = dateString;
-            userName.append(dateContainer);
             // Title
             const title = document.createElement("p");
             title.classList.add("title-article");
             title.innerText = post.title;
+            title.append(dateContainer);
+
             // Content
             const content = document.createElement("p");
             content.classList.add("content-article");
@@ -48,11 +53,29 @@ const handleGetArticle = async () => {
             postContainer.append(userName);
             postContainer.append(title);
             postContainer.append(content);
+            articleContainer.append(postContainer);
+
+            // Read More
+            if (content.offsetHeight > 50) {
+                const readMore = document.createElement("span");
+                readMore.classList.add("read-more");
+                readMore.innerText = `Read more`;
+                postContainer.append(readMore);
+                readMore.addEventListener("click", () => {
+                    content.style.display =
+                        content.style.display === "block"
+                            ? "-webkit-box"
+                            : "block";
+                    readMore.innerText =
+                        readMore.innerText === "Read more"
+                            ? "Hide"
+                            : "Read more";
+                });
+            }
             // Separate
             const separate = document.createElement("hr");
             separate.style.marginTop = "10px";
             postContainer.append(separate);
-            articleContainer.append(postContainer);
         });
     }
     loading.classList.add("hide");

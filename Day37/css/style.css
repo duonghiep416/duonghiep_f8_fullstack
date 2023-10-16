@@ -498,9 +498,22 @@ p.title-article {
 
 p.content-article {
     margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     font-size: 18px;
 }
 
 .date {
-    margin-left: 20px;
+    float: right;
+}
+
+.read-more {
+    font-size: 15px;
+    color: #12708d;
+    padding-top: 8px;
+    display: inline-block;
+    text-decoration: underline;
+    cursor: pointer;
 }
