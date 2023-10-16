@@ -59,8 +59,13 @@ const handleGetArticle = async () => {
     client.setUrl(SERVER_AUTH_API);
 };
 
-const render = () => {
-    if (localStorage.getItem("access_token")) {
+const render = async () => {
+    client.setUrl(SERVER_API);
+    const accessToken = localStorage.getItem("access_token");
+    const { data: response } = await client.get("/users/profile", accessToken);
+    client.setUrl(SERVER_AUTH_API);
+    renewAccessToken(response);
+    if (response.status_code === "SUCCESS") {
         root.innerHTML = homePage;
         handleGetArticle();
         document.body.style.display = "block";
@@ -76,8 +81,11 @@ const render = () => {
             const token = localStorage.getItem("access_token");
             loading.classList.remove("hide");
             const { data: response } = await client.post("/logout", {}, token);
-            localStorage.removeItem("access_token");
-            localStorage.removeItem("refresh_token");
+            if (response.status_code === "SUCCESS") {
+                localStorage.removeItem("access_token");
+                localStorage.removeItem("refresh_token");
+            }
+
             loading.classList.add("hide");
             showNotification(response, null, "logout");
             isShowLogin = false;
@@ -165,7 +173,7 @@ const handleLogin = async (data) => {
         localStorage.setItem("access_token", accessToken);
         localStorage.setItem("refresh_token", refreshToken);
         render();
-        const nameEl = root.querySelector(".profile .name");
+        const nameEl = document.querySelector(".profile .name");
         localStorage.setItem("name", tokens.data.name);
         nameEl.innerText = tokens.data.name;
     }
@@ -222,5 +230,33 @@ function showNotification(response, data, type = "signup") {
     }
 }
 
+// Renew Access Token
+async function renewAccessToken(response) {
+    if (response.status_code !== "SUCCESS") {
+        const refreshToken = localStorage.getItem("refresh_token");
+        const { data } = await client.post("/refresh-token", {
+            refreshToken: refreshToken,
+        });
+        localStorage.setItem("access_token", data.data.token.accessToken);
+        render();
+    }
+}
+
 // email :helo@gmail.com
 // pass: 123123123
+
+// Xử lý khi user thay đổi accessToken => verify server
+// Nếu trả về 200 => Ok
+// Nếu trả về 401 => Xử lý logout
+
+// Khi accessToken hết hạn => Xử lý luôn cấp lại accessToken mới => Lưu storage => call lại api cần lấy dữ liệu
+
+/*
+Ví dụ:
+1. Lấy danh sách sản phẩm => Lấy được
+
+2. Lấy danh sách bài viết => accessToken hết hạn => Không lấy được bài viết
+- call Api /refresh => Lấy access mới => lưu localStorage => call lại danh sách bài viết
+
+3. Lấy danh sách khóa học
+*/
