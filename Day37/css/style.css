@@ -517,3 +517,12 @@ p.content-article {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.article-container {
+    margin-top: 20px;
+}
+
+#root {
+    width: 900px;
+    margin: 0 auto;
+}
