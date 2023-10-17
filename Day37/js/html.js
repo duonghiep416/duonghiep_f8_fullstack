@@ -63,7 +63,12 @@ export const homePage = `
                     <label for="content" class="label-form">Nhập nội dung bài viết</label>
                     <textarea name="" id="content" cols="30" rows="10"></textarea>
                 </div>
+                <div class="form-group">
+                    <label for="content" class="label-form">Chọn thời gian đăng bài (Nếu có)</label>
+                    <input type="text" id="datetime-picker">
+                </div>
                 <button class="submit-article">Submit</button>
+                <span class="time-remain"></span>
             </form>
         </div>
         <div class="unverified">

@@ -2,13 +2,13 @@ import { config } from "./config.js";
 import { client } from "./client.js";
 import { loginPage, homePage } from "./html.js";
 import { toast } from "./toast.js";
+import { datePicker, getTimePicker } from "./datepicker.js";
 const { SERVER_API, SERVER_AUTH_API } = config;
 const root = document.getElementById("root");
 const loading = document.querySelector(".loader");
 client.setUrl(SERVER_AUTH_API);
 
 let isShowLogin = false;
-
 // Get Posts
 const handleGetArticle = async () => {
     client.setUrl(SERVER_API);
@@ -81,8 +81,12 @@ const handleGetArticle = async () => {
     loading.classList.add("hide");
     client.setUrl(SERVER_AUTH_API);
 };
-
+let timerId;
 const render = async () => {
+    // if (timerId) {
+    //     clearInterval(timerId);
+    //     timerId = undefined;
+    // }
     client.setUrl(SERVER_API);
     const accessToken = localStorage.getItem("access_token");
     const { data: response } = await client.get("/users/profile", accessToken);
@@ -119,6 +123,12 @@ const render = async () => {
         const formPostArticle = document.querySelector(".post-article");
         formPostArticle.addEventListener("submit", (e) => {
             e.preventDefault();
+            const timeRemain = document.querySelector(".time-remain");
+            timeRemain.innerText = "";
+            if (timerId) {
+                clearInterval(timerId);
+                timerId = undefined;
+            }
             const title = formPostArticle.querySelector("#title").value.trim();
             const content = formPostArticle
                 .querySelector("#content")
@@ -127,7 +137,17 @@ const render = async () => {
                 handlePostArticle({ title, content });
                 render();
             }
+            const inputDatePicker = document.getElementById("datetime-picker");
+            if (inputDatePicker.value && title && content) {
+                const dateSelected = new Date(
+                    inputDatePicker._flatpickr.selectedDates[0].toString()
+                );
+                timerId = setInterval(() => {
+                    getTimePicker(dateSelected);
+                }, 1000);
+            }
         });
+        datePicker();
     } else if (!isShowLogin) {
         root.innerHTML = homePage;
         document.body.style.display = "block";

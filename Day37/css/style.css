@@ -526,3 +526,9 @@ p.content-article {
     width: 900px;
     margin: 0 auto;
 }
+
+.time-remain {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #15971f;
+}
