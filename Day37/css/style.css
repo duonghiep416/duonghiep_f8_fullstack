@@ -532,3 +532,9 @@ p.content-article {
     font-size: 14px;
     color: #15971f;
 }
+
+.email-link,
+.phone-link {
+    color: orange;
+    text-decoration: underline;
+}

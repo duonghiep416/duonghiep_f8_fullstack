@@ -3,17 +3,27 @@ import { client } from "./client.js";
 import { loginPage, homePage } from "./html.js";
 import { toast } from "./toast.js";
 import { datePicker, getTimePicker } from "./datepicker.js";
+import { convertRegex } from "./regex.js";
 const { SERVER_API, SERVER_AUTH_API } = config;
 const root = document.getElementById("root");
 const loading = document.querySelector(".loader");
 client.setUrl(SERVER_AUTH_API);
 
 let isShowLogin = false;
+
 // Get Posts
-const handleGetArticle = async () => {
+const getPosts = async (query = {}, isLoadMore = false) => {
     client.setUrl(SERVER_API);
+    const queryString = new URLSearchParams(query).toString();
     loading.classList.remove("hide");
-    const { data: response } = await client.get("/blogs");
+    const { data } = await client.get(`/blogs?${queryString}`);
+    handleGetArticle(data);
+    return data;
+};
+const limitPostInPage = 10;
+let page = 1;
+getPosts({ _limit: limitPostInPage, _page: page });
+const handleGetArticle = async (response) => {
     const articleContainer = document.querySelector(".article-container");
     articleContainer.innerHTML = "";
     if (response.status_code === "SUCCESS") {
@@ -61,16 +71,6 @@ const handleGetArticle = async () => {
                 readMore.classList.add("read-more");
                 readMore.innerText = `Read more`;
                 postContainer.append(readMore);
-                readMore.addEventListener("click", () => {
-                    content.style.display =
-                        content.style.display === "block"
-                            ? "-webkit-box"
-                            : "block";
-                    readMore.innerText =
-                        readMore.innerText === "Read more"
-                            ? "Hide"
-                            : "Read more";
-                });
             }
             // Separate
             const separate = document.createElement("hr");
@@ -78,23 +78,22 @@ const handleGetArticle = async () => {
             postContainer.append(separate);
         });
     }
+    convertRegex();
+    readMore();
     loading.classList.add("hide");
     client.setUrl(SERVER_AUTH_API);
 };
 let timerId;
 const render = async () => {
-    // if (timerId) {
-    //     clearInterval(timerId);
-    //     timerId = undefined;
-    // }
     client.setUrl(SERVER_API);
     const accessToken = localStorage.getItem("access_token");
     const { data: response } = await client.get("/users/profile", accessToken);
     client.setUrl(SERVER_AUTH_API);
     renewAccessToken(response);
     if (response.status_code === "SUCCESS") {
+        // history.pushState({ page: "home" }, "Home", "/home");
         root.innerHTML = homePage;
-        handleGetArticle();
+        getPosts();
         document.body.style.display = "block";
         const unverified = root.querySelector(".unverified");
         unverified.remove();
@@ -149,9 +148,10 @@ const render = async () => {
         });
         datePicker();
     } else if (!isShowLogin) {
+        // history.pushState({ page: "home" }, "Home", "/home");
         root.innerHTML = homePage;
         document.body.style.display = "block";
-        handleGetArticle();
+        getPosts();
         const verified = root.querySelector(".verified");
         verified.remove();
         const showLoginPageBtn = root.querySelector(".show-login-page");
@@ -161,6 +161,7 @@ const render = async () => {
             render();
         });
     } else {
+        // history.pushState({ page: "sign-in" }, "Login", "/sign-in");
         document.body.style.display = "flex";
         const signUpButton = document.getElementById("signUp");
         const signInButton = document.getElementById("signIn");
@@ -168,10 +169,12 @@ const render = async () => {
         const signupForm = document.querySelector(".signup-form");
         const signinForm = document.querySelector(".signin-form");
         signUpButton.addEventListener("click", () => {
+            history.pushState({ page: "sign-up" }, "Login", "/sign-up");
             container.classList.add("right-panel-active");
         });
 
         signInButton.addEventListener("click", () => {
+            history.pushState({ page: "sign-in" }, "Login", "/sign-in");
             container.classList.remove("right-panel-active");
         });
 
@@ -281,9 +284,34 @@ async function renewAccessToken(response) {
             refreshToken: refreshToken,
         });
         localStorage.setItem("access_token", data.data.token.accessToken);
+        localStorage.setItem("refresh_token", data.data.token.refreshToken);
         render();
     }
 }
+
+function readMore() {
+    const readMoreBtns = document.querySelectorAll(".read-more");
+    readMoreBtns.forEach((readMore) => {
+        readMore.addEventListener("click", (e) => {
+            const content = e.target
+                .closest(".post-container")
+                .querySelector(".content-article");
+            content.style.display =
+                content.style.display === "block" ? "-webkit-box" : "block";
+            readMore.innerText =
+                readMore.innerText === "Read more" ? "Hide" : "Read more";
+        });
+    });
+}
+
+// window.addEventListener("scroll", () => {
+//     const scrollHeight = document.documentElement.scrollHeight;
+//     const scrollTop = document.documentElement.scrollTop;
+//     const clientHeight = document.documentElement.clientHeight;
+//     if (scrollTop + clientHeight >= scrollHeight - 300) {
+//         fetchMoreData();
+//     }
+// });
 
 // email :helo@gmail.com
 // pass: 123123123
