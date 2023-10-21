@@ -533,6 +533,7 @@ p.content-article {
     color: #15971f;
 }
 
+.link,
 .email-link,
 .phone-link {
     color: orange;
