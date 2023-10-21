@@ -17,13 +17,17 @@ export function convertRegex() {
         .replace(
             phonePattern,
             "<a href='tel:$1' class='phone-link' target='_blank'>$1</a>"
-        )
-        .replace(
+        );
+    if (youtubePattern.exec(html)) {
+        html = html.replace(
             youtubePattern,
             `<iframe width="600" height="315" src="https://www.youtube.com/embed/$2$1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>${
                 youtubePattern.exec(html)[3] === "<" ? "$3" : ""
             }`
-        )
+        );
+    }
+
+    html = html
         .replaceAll(
             `style="margin-top: 10px;">`,
             `<hr style="margin-top: 10px;">`

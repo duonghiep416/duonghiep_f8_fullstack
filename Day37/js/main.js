@@ -169,12 +169,12 @@ const render = async () => {
         const signupForm = document.querySelector(".signup-form");
         const signinForm = document.querySelector(".signin-form");
         signUpButton.addEventListener("click", () => {
-            history.pushState({ page: "sign-up" }, "Login", "/sign-up");
+            // history.pushState({ page: "sign-up" }, "Login", "/sign-up");
             container.classList.add("right-panel-active");
         });
 
         signInButton.addEventListener("click", () => {
-            history.pushState({ page: "sign-in" }, "Login", "/sign-in");
+            // history.pushState({ page: "sign-in" }, "Login", "/sign-in");
             container.classList.remove("right-panel-active");
         });
 
