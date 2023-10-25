@@ -8,7 +8,7 @@ export const CourseDetail = ({ data }) => {
         }</p>
         ${
             course.isPro && course.isPublished
-                ? "<p class='text-lg font-bold'>Vui lòng liên hệ qua stk để nhận thông tin chi tiết khóa học!</p><img src='./src/Assets/images/qr-code.jpg' alt='qr-code' class='w-80'/>"
+                ? "Hello <img src='./src/Assets/images/f8-icon.png'/>"
                 : ""
         }
         <a href="/courses" data-navigo class="bg-orange-400 rounded-full px-4 py-3 font-semibold text-lg inline-block mt-3 text-white">Back</a>
