@@ -22,7 +22,7 @@ export const DefaultLayout = () => {
                         </li>
                     </ul>
                 </nav>
-                <div class="user basis-1/6 ">
+                <div class="user basis-1/6 flex justify-end">
                     <img src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png" alt="avatar" class="user-avatar rounded-full w-10 h-10" />
                 </div>
             </div>
