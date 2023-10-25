@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ct-course-title {
+    @apply font-bold text-2xl py-4;
+}
+
+.ct-nav-link {
+    @apply px-10 py-3 font-medium;
+}
+
+.ct-course-list {
+    @apply flex justify-between;
+}
+
+.ct-course-img:hover .link-container {
+    opacity: 1;
+    visibility: visible;
+}
