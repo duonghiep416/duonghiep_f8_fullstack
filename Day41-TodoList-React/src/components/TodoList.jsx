@@ -71,6 +71,7 @@ export default class TodoList extends Component {
                         value={todoItem.todo}
                         key={todoItem._id}
                         id={todoItem._id}
+                        isCompleted={todoItem.isCompleted}
                         onEdit={this}
                         index={index}
                     />

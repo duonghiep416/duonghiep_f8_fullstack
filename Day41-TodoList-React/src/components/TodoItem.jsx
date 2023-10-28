@@ -9,33 +9,38 @@ export default class TodoItem extends Component {
         super(props);
         this.state = {
             showEditButton: true,
-            isCompleted: false,
+            isCompleted: this.props.isCompleted,
+            prevIsCompleted: this.props.isCompleted,
             contentInput: this.props.value,
+            prevContentInput: this.props.value,
         };
     }
     changeUIEdit = () => {
         this.setState({
             showEditButton: !this.state.showEditButton,
-        });
-    };
-
-    inputChange = () => {
-        this.setState({
-            isCompleted: !this.state.isCompleted,
+            contentInput: this.state.prevContentInput,
+            isCompleted: this.state.prevIsCompleted,
         });
     };
 
     handleEdit = async () => {
         const id = this.props.id;
-        const result = await handleLogic.updateTodo(id, {
-            todo: this.state.contentInput,
-            isCompleted: this.state.isCompleted,
-        });
-        if (result.status_code === "SUCCESS") {
-            this.changeUIEdit();
-            toast.success("Sửa thành công!");
-        } else if (result.status_code === "FAILED") {
-            toast.error("Sửa thất bại, vui lòng tải lại trang");
+        if (!this.state.contentInput) {
+            this.handleDelete();
+        } else {
+            const result = await handleLogic.updateTodo(id, {
+                todo: this.state.contentInput,
+                isCompleted: this.state.isCompleted,
+            });
+            if (result.status_code === "SUCCESS") {
+                this.setState({
+                    prevContentInput: this.state.contentInput,
+                    prevIsCompleted: this.state.isCompleted,
+                });
+                toast.success("Sửa thành công!");
+            } else if (result.status_code === "FAILED") {
+                toast.error("Sửa thất bại, vui lòng tải lại trang");
+            }
         }
     };
 
@@ -87,7 +92,15 @@ export default class TodoItem extends Component {
                                 children="Cập nhật"
                                 color="emerald"
                                 tailwindCss="mr-2"
-                                onClick={this.handleEdit}
+                                onClick={() => {
+                                    this.handleEdit();
+                                    this.setState({
+                                        showEditButton:
+                                            !this.state.showEditButton,
+                                        contentInput:
+                                            this.state.prevContentInput,
+                                    });
+                                }}
                             />
                         </>
                     )}
@@ -104,7 +117,11 @@ export default class TodoItem extends Component {
                                 name={`isCompleted-${this.props.index}`}
                                 id={`isCompleted-${this.props.index}`}
                                 className="ml-auto w-5 h-5 bg-gray-100 border-gray-300 rounded dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600outline-none"
-                                onChange={this.inputChange}
+                                onChange={(e) => {
+                                    this.setState({
+                                        isCompleted: e.target.checked,
+                                    });
+                                }}
                                 checked={this.state.isCompleted ? true : false}
                             />
                             <label htmlFor={`isCompleted-${this.props.index}`}>
