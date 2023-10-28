@@ -97,8 +97,8 @@ export default class TodoItem extends Component {
                                     this.setState({
                                         showEditButton:
                                             !this.state.showEditButton,
-                                        contentInput:
-                                            this.state.prevContentInput,
+                                        prevContentInput:
+                                            this.state.contentInput,
                                     });
                                 }}
                             />
