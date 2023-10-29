@@ -1,6 +1,6 @@
 import React from "react";
 import TodoList from "./components/TodoList";
-import { ToastContaine } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BallTriangle } from "react-loader-spinner";
 export default function App() {
