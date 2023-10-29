@@ -1,5 +1,4 @@
 import { client } from "./client.js";
-import validateUser from "./validateUser.js";
 export const handleLogic = {
     getAPIKey: async function (query = {}) {
         const loading = document.querySelector(".loading");
