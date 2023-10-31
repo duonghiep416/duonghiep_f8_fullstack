@@ -1,82 +1,153 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import debounce from "lodash.debounce";
 import Button from "./Button";
 import { toast } from "react-toastify";
 import TodoItem from "./TodoItem";
 import validateUser from "../assets/js/validateUser";
 import { handleLogic } from "../assets/js/script";
 
-export default class TodoList extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            todoList: [],
-        };
-    }
-
-    getTodo = () => {
+export default function TodoList() {
+    const [todoList, setTodoList] = useState({
+        todoData: [],
+        todoValue: "",
+        todoDataCopy: [],
+    });
+    const [searchValue, setSearchValue] = useState("");
+    const getTodo = () => {
         setTimeout(async () => {
             await validateUser();
             var listTodo = await handleLogic.getListTodo();
-            this.setState({
-                todoList: listTodo.data.listTodo,
-            });
+            setTodoList((prevState) => ({
+                ...prevState,
+                todoData: listTodo.data.listTodo,
+                todoDataCopy: listTodo.data.listTodo,
+            }));
         });
     };
 
-    componentDidMount() {
-        this.getTodo();
-    }
+    const addTodo = async (e) => {
+        e.preventDefault();
 
-    render() {
-        const { todoList } = this.state;
-        const addTodo = async (e) => {
-            e.preventDefault();
-            const input = document.querySelector(".input-add-todo");
-            const inputValue = input.value.trim();
-            if (inputValue) {
-                const result = await handleLogic.postTodo({ todo: inputValue });
-                if (result.status_code === "SUCCESS") {
-                    this.getTodo();
-                    toast.success("Thêm thành công!");
-                    input.value = "";
-                } else if (result.status_code === "FAILED") {
-                    toast.error("Thêm thất bại, vui lòng tải lại trang");
-                }
-            } else {
-                toast.error("Vui lòng nhập nội dung!");
+        if (todoList.todoValue) {
+            const result = await handleLogic.postTodo({
+                todo: todoList.todoValue,
+            });
+            if (result.status_code === "SUCCESS") {
+                toast.success("Thêm thành công!");
+                setTodoList((prevState) => ({
+                    todoData: [result.data, ...prevState.todoData],
+                    todoDataCopy: [result.data, ...prevState.todoData],
+                    todoValue: "",
+                }));
+            } else if (result.status_code === "FAILED") {
+                toast.error("Thêm thất bại, vui lòng tải lại trang");
             }
-        };
-        return (
-            <>
-                <form action="" className="form-add-todo">
-                    <div className="form-group relative mb-5">
-                        <input
-                            type="text"
-                            className="input-add-todo w-96 h-14 bg-transparent outline-none px-2 text-white font-semibold text-lg border-b-2 border-emerald-400 pr-32"
-                            placeholder="Thêm một việc làm mới"
-                        />
-                        <Button
-                            children="Thêm mới"
-                            color="emerald"
-                            tailwindCss="absolute top-1/2 right-0 -translate-y-1/2"
-                            onClick={(e) => {
-                                addTodo(e);
-                            }}
-                        />
-                    </div>
-                </form>
-                {todoList.map((todoItem, index) => (
-                    <TodoItem
-                        value={todoItem.todo}
-                        key={todoItem._id}
-                        id={todoItem._id}
-                        isCompleted={todoItem.isCompleted}
-                        onEdit={this}
-                        index={index}
+        } else {
+            toast.error("Vui lòng nhập nội dung!");
+        }
+    };
+
+    const searchTodo = async () => {
+        const apiKey = localStorage.getItem("apiKey");
+
+        if (searchValue) {
+            const result = await handleLogic.searchTodo(
+                {
+                    q: searchValue,
+                },
+                apiKey
+            );
+            if (result.status_code === "SUCCESS") {
+                toast.success("Tìm thành công");
+                setTodoList((prevState) => ({
+                    ...prevState,
+                    todoData: result.data.listTodo,
+                }));
+            } else if (result.status_code === "FAILED") {
+                toast.error("Tìm thất bại, vui lòng thử lại");
+            }
+        } else {
+            setTodoList((prevState) => ({
+                ...prevState,
+                todoData: prevState.todoDataCopy,
+            }));
+        }
+    };
+
+    const updateSearchValue = (e) => {
+        setSearchValue(e?.target?.value);
+    };
+
+    useEffect(() => {
+        searchTodo();
+    }, [searchValue]);
+
+    const debounceOnChange = debounce(updateSearchValue, 400);
+
+    useEffect(() => {
+        getTodo();
+    }, []);
+
+    return (
+        <>
+            <form
+                action=""
+                className="form-add-todo flex items-center gap-3 mb-5"
+            >
+                <div className="form-group relative">
+                    <input
+                        type="text"
+                        className="input-add-todo w-96 h-14 bg-transparent outline-none px-2 text-white font-semibold text-lg border-b-2 border-emerald-400 pr-32"
+                        placeholder="Thêm một việc làm mới"
+                        name="todoValue"
+                        value={todoList.todoValue}
+                        onChange={(e) => {
+                            setTodoList((prevState) => ({
+                                ...prevState,
+                                todoValue: e.target.value,
+                            }));
+                        }}
                     />
-                ))}
-            </>
-        );
-    }
+                    <Button
+                        children="Thêm mới"
+                        color="emerald"
+                        tailwindCss="absolute top-1/2 right-0 -translate-y-1/2"
+                        onClick={(e) => {
+                            addTodo(e);
+                        }}
+                    />
+                </div>
+            </form>
+            <form action="" className="search-form">
+                <div className="form-group relative">
+                    <input
+                        type="text"
+                        className="input-add-todo w-96 h-14 bg-transparent outline-none px-2 text-white font-semibold text-lg border-b-2 border-amber-400 pr-32"
+                        placeholder="Tìm kiếm..."
+                        name="todoValue"
+                        onChange={debounceOnChange}
+                    />
+                </div>
+            </form>
+            {todoList.todoData.map((todoItem, index) => (
+                <TodoItem
+                    value={todoItem.todo}
+                    key={todoItem._id}
+                    id={todoItem._id}
+                    isCompleted={todoItem.isCompleted}
+                    onEdit={getTodo}
+                    index={index}
+                />
+            ))}
+        </>
+    );
 }
+
+/*
+- Sửa bài sử dụng class component => function component (Done)
+- Sử dụng state với object (Done)
+- Chỉnh lại loading sử dụng state
+- Sử dụng state để tối ưu các đoạn prevIsCompleted, prevContentInput
+- Làm chức năng tìm kiếm
+- Tìm hiểu lí do log ra 2 object (Done)
+*/

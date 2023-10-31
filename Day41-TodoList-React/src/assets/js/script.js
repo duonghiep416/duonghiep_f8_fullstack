@@ -53,4 +53,15 @@ export const handleLogic = {
         loading.classList.add("hide");
         return data;
     },
+
+    searchTodo: async function (query = {}, apiKey) {
+        const loading = document.querySelector(".loading");
+        loading.classList.remove("hide");
+
+        const queryString = new URLSearchParams(query).toString();
+        const { data } = await client.get(`/todos?${queryString}`, apiKey);
+
+        loading.classList.add("hide");
+        return data;
+    },
 };

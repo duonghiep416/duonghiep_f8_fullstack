@@ -2,30 +2,14 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BallTriangle } from "react-loader-spinner";
+import Loading from "./components/Loading";
 export default function App() {
     return (
         <>
-            <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                color="#10b981"
-                ariaLabel="ball-triangle-loading"
-                wrapperClass={"loading"}
-                wrapperStyle={{
-                    position: "fixed",
-                    inset: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    zIndex: 9999,
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
-            />
+            <Loading />
             <ToastContainer
                 position="top-right"
-                autoClose={3000}
+                autoClose={1000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
