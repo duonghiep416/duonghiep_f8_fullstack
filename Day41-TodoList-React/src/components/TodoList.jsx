@@ -142,12 +142,3 @@ export default function TodoList() {
         </>
     );
 }
-
-/*
-- Sửa bài sử dụng class component => function component (Done)
-- Sử dụng state với object (Done)
-- Chỉnh lại loading sử dụng state
-- Sử dụng state để tối ưu các đoạn prevIsCompleted, prevContentInput
-- Làm chức năng tìm kiếm
-- Tìm hiểu lí do log ra 2 object (Done)
-*/
