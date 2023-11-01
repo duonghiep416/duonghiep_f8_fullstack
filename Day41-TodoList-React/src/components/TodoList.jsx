@@ -58,11 +58,15 @@ export default function TodoList() {
                 apiKey
             );
             if (result.status_code === "SUCCESS") {
-                toast.success("Tìm thành công");
                 setTodoList((prevState) => ({
                     ...prevState,
                     todoData: result.data.listTodo,
                 }));
+                if (result.data.listTodo.length === 0) {
+                    toast.success("Không tìm thấy kết quả");
+                } else {
+                    toast.success("Tìm thành công");
+                }
             } else if (result.status_code === "FAILED") {
                 toast.error("Tìm thất bại, vui lòng thử lại");
             }
@@ -82,7 +86,7 @@ export default function TodoList() {
         searchTodo();
     }, [searchValue]);
 
-    const debounceOnChange = debounce(updateSearchValue, 400);
+    const debounceOnChange = debounce(updateSearchValue, 1000);
 
     useEffect(() => {
         getTodo();
@@ -118,7 +122,13 @@ export default function TodoList() {
                     />
                 </div>
             </form>
-            <form action="" className="search-form">
+            <form
+                action=""
+                className="search-form"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                }}
+            >
                 <div className="form-group relative">
                     <input
                         type="text"
