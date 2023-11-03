@@ -18,6 +18,7 @@ export default function CardItem(props) {
                 name: productName,
                 quantity: product.quantity,
                 price: product.price,
+                setProduct: setProduct,
             },
         });
     };

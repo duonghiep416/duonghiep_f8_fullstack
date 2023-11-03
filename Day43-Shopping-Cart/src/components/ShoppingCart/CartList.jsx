@@ -42,6 +42,12 @@ export default function CartList() {
                         dispatch({
                             type: "product/makeEmpty",
                         });
+                        for (var i = 0; i < state.productsCart.length; i++) {
+                            state.productsCart[i].setProduct({
+                                quantity: 0,
+                                price: 0,
+                            });
+                        }
                     }
                 }}
             >
