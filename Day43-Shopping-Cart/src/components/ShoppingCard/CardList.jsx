@@ -33,8 +33,8 @@ export default function CardList() {
             {products.map((product) => {
                 return (
                     <CardItem
-                        key={product.id}
-                        id={product.id}
+                        key={product._id}
+                        id={product._id}
                         productName={product.name}
                         productPrice={product.price}
                         productImg={product.image}
