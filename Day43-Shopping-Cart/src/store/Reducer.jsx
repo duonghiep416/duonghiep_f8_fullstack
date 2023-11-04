@@ -1,3 +1,8 @@
+import {
+    impactProduct,
+    filterLatestProducts,
+} from "../components/ShoppingCart/payment";
+
 const initState = {
     products: [],
     productsCart: [],
@@ -27,21 +32,38 @@ function reducer(state, action) {
                 ...state,
                 loading: !state.loading,
             };
+        case "cart/decrease":
+            return {
+                ...state,
+                productsCart: impactProduct(
+                    state.productsCart,
+                    action.payload,
+                    "decrease",
+                    state
+                ),
+            };
+        case "cart/increase":
+            return {
+                ...state,
+                productsCart: impactProduct(
+                    state.productsCart,
+                    action.payload,
+                    "increase",
+                    state
+                ),
+            };
+        case "cart/remove":
+            return {
+                ...state,
+                productsCart: impactProduct(
+                    state.productsCart,
+                    action.payload,
+                    "remove",
+                    state
+                ),
+            };
     }
 }
 
 export { initState };
 export default reducer;
-function filterLatestProducts(products) {
-    const latestProducts = {};
-
-    for (const product of products) {
-        const id = product.id;
-
-        latestProducts[id] = product;
-    }
-
-    const filteredProducts = Object.values(latestProducts);
-
-    return filteredProducts;
-}

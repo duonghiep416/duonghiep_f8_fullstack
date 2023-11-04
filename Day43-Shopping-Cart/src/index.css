@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ct-table-col {
+    @apply border border-slate-700 pl-3;
+}
+
+.ct-btn-primary {
+    @apply border-green-400;
+}
