@@ -17,6 +17,9 @@ export default function CartList() {
                             Tên sản phẩm
                         </th>
                         <th className="border border-slate-700">Số lượng</th>
+                        <th className="border border-slate-700">
+                            Số lượng còn lại
+                        </th>
                         <th className="border border-slate-700">Tổng tiền</th>
                         <th className="border border-slate-700">Hành động</th>
                     </tr>
@@ -38,6 +41,7 @@ export default function CartList() {
                             Thành tiền
                         </td>
                         <td className="ct-table-col">{totalQuantity}</td>
+                        <td></td>
                         <td className="ct-table-col">{totalPrice}</td>
                         <td className="ct-table-col">
                             <Button

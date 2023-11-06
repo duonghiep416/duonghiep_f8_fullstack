@@ -32,6 +32,7 @@ export default function CartItem({ quantity, price, name, id }) {
                         +
                     </Button>
                 </td>
+                <td></td>
                 <td className="ct-table-col">{price}</td>
                 <td className="ct-table-col">
                     <Button

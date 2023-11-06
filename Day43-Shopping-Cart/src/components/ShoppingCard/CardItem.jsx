@@ -45,7 +45,7 @@ export default function CardItem(props) {
                     <p className="product-price mt-2 text-[#beaeaa] text-xl">
                         {productPrice}$
                         <span className="higher-price ml-2 line-through text-gray-400 text-sm">
-                            1.000.000$
+                            {productPrice + 100000}$
                         </span>
                     </p>
                     <p className="product-desc text-lg text-justify">
@@ -66,7 +66,7 @@ export default function CardItem(props) {
                         Add To Cart
                     </Button>
                     <span className="quantity border-blue-700 border px-3 py-1">
-                        {productQuantity}
+                        Còn {productQuantity} sp
                     </span>
                 </div>
             </div>
