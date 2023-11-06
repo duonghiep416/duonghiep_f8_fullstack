@@ -27,6 +27,12 @@ function QuestionForm() {
         });
     };
 
+    const templateParams = {
+        user_email: formValue.email,
+        message: formValue.questionValue,
+        user_name: user.name,
+    };
+
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         setFormValue({
@@ -39,10 +45,10 @@ function QuestionForm() {
             payload: true,
         });
         await emailjs
-            .sendForm(
+            .send(
                 "service_mlz7xcl",
                 "template_pkxmy1s",
-                form.current,
+                templateParams,
                 "3AdBfvgjT878R2qjz"
             )
             .then(
