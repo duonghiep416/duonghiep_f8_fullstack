@@ -1,11 +1,11 @@
 import getRandomNumber from '../../helpers/randomNumber'
-
+import saveDataInBrowser from '../../helpers/saveDataInBrowser'
 const initState = {
   numberOfAttempt: 7,
   fromNumber: 1,
   toNumber: 99,
   randomNumber: 0,
-  history: []
+  history: JSON.parse(localStorage.getItem('history')) || []
 }
 
 function reducer(state, action) {
@@ -29,15 +29,23 @@ function reducer(state, action) {
         randomNumber: getRandomNumber(state.fromNumber, state.toNumber)
       }
     case 'history/add':
+      const dataHistory = [
+        {
+          id: state.history.length + 1,
+          answers: action.payload
+        },
+        ...state.history
+      ]
+      saveDataInBrowser('history', dataHistory)
       return {
         ...state,
-        history: [
-          {
-            id: state.history.length + 1,
-            answers: action.payload
-          },
-          ...state.history
-        ]
+        history: dataHistory
+      }
+    case 'history/clear':
+      localStorage.removeItem('history')
+      return {
+        ...state,
+        history: []
       }
   }
 }
