@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react'
+import { useState, useRef, useContext } from 'react'
 import Button from '../Button/Button'
 import { useAuth0 } from '@auth0/auth0-react'
 import emailjs from '@emailjs/browser'
@@ -8,7 +8,7 @@ function QuestionForm() {
   const form = useRef()
   const { user } = useAuth0()
   const { email } = user
-  const [state, dispatch] = useContext(Context)
+  const [dispatch] = useContext(Context)
   const [formValue, setFormValue] = useState({
     email: email,
     questionValue: 'Tôi cần trợ giúp bài tập về nhà!'
@@ -47,10 +47,10 @@ function QuestionForm() {
         '3AdBfvgjT878R2qjz'
       )
       .then(
-        (result) => {
+        () => {
           toast.success('Gửi yêu cầu trợ giúp thành công')
         },
-        (error) => {
+        () => {
           toast.error('Gửi yêu cầu trợ giúp thất bại, vui lòng tải lại trang')
         }
       )
