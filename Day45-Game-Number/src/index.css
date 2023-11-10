@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html.dark {
+  background-color: #1a202c;
+}
+
+html.dark body {
+  color: #248495;
+}
+
+.h3 {
+  @apply font-bold text-4xl py-2;
+}
