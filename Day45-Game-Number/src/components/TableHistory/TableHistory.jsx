@@ -40,6 +40,10 @@ function TableHistory() {
   }
   useEffect(() => {
     document.addEventListener('keydown', handleScrollTable)
+    tableRef.current.scroll({
+      left: 0,
+      behavior: 'smooth'
+    })
     return () => document.removeEventListener('keydown', handleScrollTable)
   }, [history])
 
@@ -56,6 +60,9 @@ function TableHistory() {
                 <p>
                   Lần chơi thứ {history.length - historyIndex} /{' '}
                   {history.length}
+                </p>
+                <p className='text-green-500'>
+                  Đáp án đúng: {historyItem.correctAnswer}
                 </p>
                 <table className='ct-table-history'>
                   <thead>

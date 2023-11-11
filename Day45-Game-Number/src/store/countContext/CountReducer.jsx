@@ -32,7 +32,8 @@ function reducer(state, action) {
       const dataHistory = [
         {
           id: state.history.length + 1,
-          answers: action.payload
+          answers: action.payload.dataAnswers,
+          correctAnswer: action.payload.randomNumber
         },
         ...state.history
       ]

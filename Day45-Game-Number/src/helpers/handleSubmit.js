@@ -20,7 +20,7 @@ const handleSubmit = (
       } else {
         setInputValue('')
       }
-      dispatchSubmit(numberOfAttempt, dispatch, count)
+      dispatchSubmit(numberOfAttempt, dispatch, count, randomNumber)
     } else if (value < randomNumber) {
       toast.warning('Bạn cần tăng một chút nữa')
       if (numberOfAttempt >= 1) {
@@ -28,7 +28,7 @@ const handleSubmit = (
       } else {
         setInputValue('')
       }
-      dispatchSubmit(numberOfAttempt, dispatch, count)
+      dispatchSubmit(numberOfAttempt, dispatch, count, randomNumber)
     } else if (+value === randomNumber) {
       toast.success('Chúc mừng, bạn đã đoán đúng')
       dataAnswers.push(value)
@@ -43,7 +43,10 @@ const handleSubmit = (
       })
       dispatch({
         type: 'history/add',
-        payload: dataAnswers
+        payload: {
+          dataAnswers,
+          randomNumber
+        }
       })
       setInputValue('')
       dataAnswers = []
@@ -63,11 +66,29 @@ const handleSubmit = (
 
 export default handleSubmit
 
-const dispatchSubmit = (numberOfAttempt, dispatch, count) => {
-  if (numberOfAttempt > 0) {
+const dispatchSubmit = (numberOfAttempt, dispatch, count, randomNumber) => {
+  if (numberOfAttempt > 1) {
     dispatch({
       type: 'question/submit'
     })
+  } else if (numberOfAttempt === 1) {
+    dispatch({
+      type: 'question/submit',
+      payload: {
+        numberOfAttempt: 0
+      }
+    })
+    dispatch({
+      type: 'history/add',
+      payload: {
+        dataAnswers,
+        randomNumber
+      }
+    })
+    dispatch({
+      type: 'randomNumber/renew'
+    })
+    dataAnswers = []
   } else {
     dispatch({
       type: 'question/submit',
@@ -75,13 +96,5 @@ const dispatchSubmit = (numberOfAttempt, dispatch, count) => {
         numberOfAttempt: count.current
       }
     })
-    dispatch({
-      type: 'randomNumber/renew'
-    })
-    dispatch({
-      type: 'history/add',
-      payload: dataAnswers
-    })
-    dataAnswers = []
   }
 }
