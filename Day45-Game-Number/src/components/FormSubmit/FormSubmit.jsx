@@ -3,7 +3,6 @@ import Context from '../../store/countContext/CountContext'
 import handleSubmit from '../../helpers/handleSubmit'
 import Button from '../Button/Button'
 import isNumberInRange from '../../helpers/checkInputNumber'
-import listenEvent from '../../helpers/listenEvent'
 function FormSubmit() {
   const [state, dispatch] = useContext(Context)
   const [inputValue, setInputValue] = useState('')
@@ -13,7 +12,6 @@ function FormSubmit() {
     dispatch({
       type: 'randomNumber/renew'
     })
-    // listenEvent()
   }, [])
 
   const handleInputChange = (e) => {
@@ -24,6 +22,28 @@ function FormSubmit() {
       setInputValue(e.target.value)
     }
   }
+
+  const handleArrowKeyDown = (e) => {
+    switch (e.key) {
+      case 'ArrowUp':
+        if (inputValue < toNumber) {
+          setInputValue((prevValue) => +prevValue + 1)
+        }
+        break
+      case 'ArrowDown':
+        if (inputValue > fromNumber) {
+          setInputValue((prevValue) => +prevValue - 1)
+        }
+        break
+      default:
+        break
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleArrowKeyDown)
+    return () => document.removeEventListener('keydown', handleArrowKeyDown)
+  }, [inputValue])
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import darkImg from '../../assets/dark-mode.png'
 import lightImg from '../../assets/light-mode.png'
 function ToggleTheme() {
@@ -9,7 +9,7 @@ function ToggleTheme() {
     setDarkMode((prevDarkMode) => !prevDarkMode)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     localStorage.setItem('darkMode', darkMode)
     if (localStorage.getItem('darkMode') === 'true') {
       document.documentElement.classList.add('dark')
@@ -19,10 +19,7 @@ function ToggleTheme() {
   }, [darkMode])
   return (
     <>
-      <div
-        className='dark-mode-toggle flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-slate-800/70 transition rounded-md'
-        onClick={toggleDarkMode}
-      >
+      <div className='ct-dark-mode-toggle' onClick={toggleDarkMode}>
         <img
           src={darkMode ? lightImg : darkImg}
           className='w-6 h-6 object-cover select-none'

@@ -13,3 +13,19 @@ html.dark body {
 .h3 {
   @apply font-bold text-4xl py-2;
 }
+
+.ct-trash-container {
+  @apply flex items-center justify-center w-10 h-10 hover:bg-slate-700/70 ml-auto cursor-pointer rounded-lg transition dark:bg-slate-200;
+}
+
+.ct-table-history {
+  @apply table-auto w-full border-collapse border dark:border-slate-400 mt-7 text-center;
+}
+
+.ct-table-col {
+  @apply w-[50vh] border border-black dark:border-slate-400;
+}
+
+.ct-dark-mode-toggle {
+  @apply flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-slate-800/70 transition rounded-md;
+}

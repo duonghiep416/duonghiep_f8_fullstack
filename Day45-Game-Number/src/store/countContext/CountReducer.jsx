@@ -12,9 +12,9 @@ function reducer(state, action) {
   switch (action.type) {
     case 'question/submit':
       let data = 0
-      if (action?.payload?.numberOfAttempt) {
+      if (action.payload?.numberOfAttempt) {
         data = action.payload.numberOfAttempt
-      } else if (action?.payload?.numberOfAttempt === 0) {
+      } else if (action.payload?.numberOfAttempt === 0) {
         data = 0
       } else {
         data = state.numberOfAttempt - 1
