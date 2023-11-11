@@ -84,7 +84,7 @@ function FormSubmit() {
         <label htmlFor='inputNumber'>Hãy nhập thử một số</label>
         {numberOfAttempt >= 1 && (
           <input
-            type='number'
+            type='text'
             placeholder='Hãy nhập thử một số'
             className='h-10 px-2 outline-none border border-emerald-800 rounded-md'
             min={fromNumber}
