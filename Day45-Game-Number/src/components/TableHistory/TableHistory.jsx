@@ -39,11 +39,14 @@ function TableHistory() {
     })
   }
   useEffect(() => {
-    document.addEventListener('keydown', handleScrollTable)
-    tableRef.current.scroll({
-      left: 0,
-      behavior: 'smooth'
-    })
+    if (history.length !== 0) {
+      document.addEventListener('keydown', handleScrollTable)
+      tableRef.current.scroll({
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+
     return () => document.removeEventListener('keydown', handleScrollTable)
   }, [history])
 
