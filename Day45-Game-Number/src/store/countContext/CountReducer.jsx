@@ -1,9 +1,11 @@
+import config from '../../config/config'
 import getRandomNumber from '../../helpers/randomNumber'
 import saveDataInBrowser from '../../helpers/saveDataInBrowser'
+const { MIN_NUMBER, MAX_NUMBER, MAX_TURN } = config
 const initState = {
-  numberOfAttempt: 7,
-  fromNumber: 1,
-  toNumber: 99,
+  numberOfAttempt: MAX_TURN,
+  fromNumber: MIN_NUMBER,
+  toNumber: MAX_NUMBER,
   randomNumber: 0,
   history: JSON.parse(localStorage.getItem('history')) || []
 }

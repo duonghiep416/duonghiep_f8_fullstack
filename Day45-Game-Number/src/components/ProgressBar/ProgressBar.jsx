@@ -12,7 +12,10 @@ export default function ProgressBar() {
 
   return (
     <>
-      <div className='h-3 bg-emerald-900' ref={progressBarRef}></div>
+      <div
+        className='h-3 bg-emerald-900 transition-all duration-700'
+        ref={progressBarRef}
+      ></div>
     </>
   )
 }

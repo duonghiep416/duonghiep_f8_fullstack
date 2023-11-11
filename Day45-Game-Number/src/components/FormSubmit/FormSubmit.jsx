@@ -8,6 +8,8 @@ function FormSubmit() {
   const [inputValue, setInputValue] = useState('')
   const { numberOfAttempt, fromNumber, toNumber, randomNumber } = state
   const count = useRef(numberOfAttempt)
+  const btnFormRef = useRef()
+  const inputFormRef = useRef()
   useEffect(() => {
     dispatch({
       type: 'randomNumber/renew'
@@ -23,16 +25,33 @@ function FormSubmit() {
     }
   }
 
-  const handleArrowKeyDown = (e) => {
+  const handleKeyDown = (e) => {
+    inputFormRef.current?.focus()
     switch (e.key) {
       case 'ArrowUp':
-        if (inputValue < toNumber) {
+        if (
+          inputValue < toNumber &&
+          !document.activeElement.isEqualNode(inputFormRef.current) &&
+          !document.activeElement.isEqualNode(btnFormRef.current)
+        ) {
           setInputValue((prevValue) => +prevValue + 1)
         }
         break
       case 'ArrowDown':
-        if (inputValue > fromNumber) {
+        if (
+          inputValue > fromNumber &&
+          !document.activeElement.isEqualNode(inputFormRef.current) &&
+          !document.activeElement.isEqualNode(btnFormRef.current)
+        ) {
           setInputValue((prevValue) => +prevValue - 1)
+        }
+        break
+      case 'Enter':
+        if (
+          !document.activeElement.isEqualNode(inputFormRef.current) &&
+          !document.activeElement.isEqualNode(btnFormRef.current)
+        ) {
+          btnFormRef.current.click()
         }
         break
       default:
@@ -41,8 +60,8 @@ function FormSubmit() {
   }
 
   useEffect(() => {
-    document.addEventListener('keydown', handleArrowKeyDown)
-    return () => document.removeEventListener('keydown', handleArrowKeyDown)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
   }, [inputValue])
 
   return (
@@ -62,7 +81,7 @@ function FormSubmit() {
           )
         }}
       >
-        <label htmlFor=''>Hãy nhập thử một số</label>
+        <label htmlFor='inputNumber'>Hãy nhập thử một số</label>
         {numberOfAttempt >= 1 && (
           <input
             type='number'
@@ -72,11 +91,14 @@ function FormSubmit() {
             max={toNumber}
             value={inputValue}
             onChange={handleInputChange}
+            id='inputNumber'
+            ref={inputFormRef}
           />
         )}
         <Button
           text={numberOfAttempt >= 1 ? 'Submit' : 'Chơi Lại'}
           color='emerald'
+          ref={btnFormRef}
         />
       </form>
     </>
