@@ -31,7 +31,6 @@ function FormSubmit() {
       case 'ArrowUp':
         if (
           inputValue < toNumber &&
-          !document.activeElement.isEqualNode(inputFormRef.current) &&
           !document.activeElement.isEqualNode(btnFormRef.current)
         ) {
           setInputValue((prevValue) => +prevValue + 1)
@@ -40,7 +39,6 @@ function FormSubmit() {
       case 'ArrowDown':
         if (
           inputValue > fromNumber &&
-          !document.activeElement.isEqualNode(inputFormRef.current) &&
           !document.activeElement.isEqualNode(btnFormRef.current)
         ) {
           setInputValue((prevValue) => +prevValue - 1)
