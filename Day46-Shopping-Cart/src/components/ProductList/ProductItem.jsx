@@ -25,7 +25,7 @@ function ProductItem({ imgUrl, productName, productPrice, id }) {
   return (
     <div className='product-item max-h-96'>
       <img src={imgUrl} alt='' className='w-64 h-56 object-cover mb-4' />
-      <p className='product-name text-2xl font-bold mb-2 truncate w-10/12'>
+      <p className='product-name text-2xl font-bold mb-2 truncate w-8/12'>
         {productName}
       </p>
       <p className='product-price text-xl font-bold mb-2'>${productPrice}</p>
