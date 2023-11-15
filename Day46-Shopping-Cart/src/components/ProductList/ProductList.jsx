@@ -4,10 +4,13 @@ import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 import Button from '../Button/Button'
 import { useDispatch } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
 export default function ProductList() {
+  const params = useParams()
   const [products, setProducts] = useState([])
   const dispatch = useDispatch()
-  const page = useRef(1)
+  const navigate = useNavigate()
+  const page = useRef(params.page ? parseInt(params.page) : 1)
   const nextPage = (e) => {
     e.preventDefault()
     page.current++
@@ -16,6 +19,7 @@ export default function ProductList() {
       behavior: 'smooth'
     })
     fetchAPI()
+    navigate(`/${page.current}`)
   }
   const prevPage = (e) => {
     e.preventDefault()
@@ -26,6 +30,7 @@ export default function ProductList() {
         behavior: 'smooth'
       })
       fetchAPI()
+      navigate(`/${page.current}`)
     } else {
       toast.warning('Bạn đang ở trang đầu tiên')
     }
@@ -48,12 +53,16 @@ export default function ProductList() {
         payload: false
       })
     } catch (error) {
-      toast.error('Có lỗi xảy ra, vui lòng tải lại trang')
+      toast.error('Có lỗi xảy ra')
+      navigate('/')
     }
   }
   useEffect(() => {
-    fetchAPI()
-  }, [])
+    if (!params.page) {
+      page.current = 1
+      fetchAPI()
+    }
+  }, [params])
   return (
     <>
       <div className='product-list grid gap-4 grid-cols-4 py-5'>

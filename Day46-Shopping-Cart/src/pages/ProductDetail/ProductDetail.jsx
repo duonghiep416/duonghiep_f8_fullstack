@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import * as request from '../../utils/request'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
@@ -8,6 +8,7 @@ import Header from '../../components/Header/Header'
 function ProductDetail() {
   const params = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const products = useSelector((state) => state.productsCart)
   const indexProduct = products.findIndex(
     (product) => product._id === params.id
@@ -28,7 +29,8 @@ function ProductDetail() {
         payload: false
       })
     } catch (error) {
-      toast.error('Có lỗi xảy ra, vui lòng tải lại trang')
+      toast.error('Sản phẩm không tồn tại')
+      navigate('/')
     }
   }
 

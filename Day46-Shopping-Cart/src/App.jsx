@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path='*' element={<NotFound />} />
           <Route path='/' element={<Home />} />
+          <Route path='/:page' element={<Home />} />
           <Route path='/shoppingCart' element={<ShoppingCart />} />
           <Route path='/product/:id' element={<ProductDetail />} />
         </Routes>
