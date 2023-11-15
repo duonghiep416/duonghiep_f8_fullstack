@@ -18,7 +18,7 @@ export default function ProductList() {
       top: 0,
       behavior: 'smooth'
     })
-    fetchAPI()
+    // fetchAPI()
     navigate(`/${page.current}`)
   }
   const prevPage = (e) => {
@@ -29,7 +29,7 @@ export default function ProductList() {
         top: 0,
         behavior: 'smooth'
       })
-      fetchAPI()
+      // fetchAPI()
       navigate(`/${page.current}`)
     } else {
       toast.warning('Bạn đang ở trang đầu tiên')
@@ -60,8 +60,8 @@ export default function ProductList() {
   useEffect(() => {
     if (!params.page) {
       page.current = 1
-      fetchAPI()
     }
+    fetchAPI()
   }, [params])
   return (
     <>
