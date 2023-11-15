@@ -48,6 +48,9 @@ export default function ProductList() {
         }
       })
       setProducts(res.data.listProduct)
+      if (res.data.listProduct.length === 0) {
+        navigate('/')
+      }
       dispatch({
         type: 'loading/switch',
         payload: false
