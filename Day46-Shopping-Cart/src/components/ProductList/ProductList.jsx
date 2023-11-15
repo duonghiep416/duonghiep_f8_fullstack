@@ -3,8 +3,10 @@ import * as request from '../../utils/request'
 import { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 import Button from '../Button/Button'
+import { useDispatch } from 'react-redux'
 export default function ProductList() {
   const [products, setProducts] = useState([])
+  const dispatch = useDispatch()
   const page = useRef(1)
   const nextPage = (e) => {
     e.preventDefault()
@@ -30,6 +32,10 @@ export default function ProductList() {
   }
   const fetchAPI = async () => {
     try {
+      dispatch({
+        type: 'loading/switch',
+        payload: true
+      })
       const res = await request.get('/products', {
         params: {
           page: page.current,
@@ -37,6 +43,10 @@ export default function ProductList() {
         }
       })
       setProducts(res.data.listProduct)
+      dispatch({
+        type: 'loading/switch',
+        payload: false
+      })
     } catch (error) {
       toast.error('Có lỗi xảy ra, vui lòng tải lại trang')
     }
