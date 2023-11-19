@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import statusLoginSlice from '../../redux/slice/statusLoginSlice'
 import tasksSlice from '../../redux/slice/tasksSlice'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import handleOnDragEnd from '../../helpers/handleDragEnd'
 
 const { switchStatusLogin } = statusLoginSlice.actions
 const { updateTasks } = tasksSlice.actions
@@ -27,21 +28,23 @@ function ListCol() {
     }
   }
 
-  function handleOnDragEnd(result) {
-    if (!result.destination) return
-    const items = Array.from(characters)
-    const [reorderedItem] = items.splice(result.source.index, 1)
-    items.splice(result.destination.index, 0, reorderedItem)
-    updateCharacters(items)
-    dispatch(updateTasks(items))
-  }
-
   useEffect(() => {
     getTask()
   }, [])
   return (
-    <DragDropContext onDragEnd={handleOnDragEnd}>
-      <Droppable droppableId='characters' direction='horizontal'>
+    <DragDropContext
+      onDragEnd={(result) => {
+        handleOnDragEnd(
+          result,
+          characters,
+          updateCharacters,
+          data,
+          dispatch,
+          updateTasks
+        )
+      }}
+    >
+      <Droppable droppableId='characters' direction='horizontal' type='column'>
         {(provided) => (
           <div
             className='characters flex flex-nowrap gap-3'
@@ -60,6 +63,7 @@ function ListCol() {
                     header={column.columnName}
                     provided={provided}
                     snapshot={snapshot}
+                    id={column._id}
                   />
                 )}
               </Draggable>
