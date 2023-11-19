@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import statusLoginSlice from '../../redux/slice/statusLoginSlice'
 import tasksSlice from '../../redux/slice/tasksSlice'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+
 const { switchStatusLogin } = statusLoginSlice.actions
 const { updateTasks } = tasksSlice.actions
 function ListCol() {
@@ -53,11 +54,12 @@ function ListCol() {
                 draggableId={column._id}
                 index={index}
               >
-                {(provided) => (
+                {(provided, snapshot) => (
                   <ItemCol
                     tasks={column.tasks}
                     header={column.columnName}
                     provided={provided}
+                    snapshot={snapshot}
                   />
                 )}
               </Draggable>
