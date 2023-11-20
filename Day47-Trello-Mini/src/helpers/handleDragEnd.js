@@ -1,3 +1,6 @@
+import { postTasks } from '../utils/handleApi'
+import filterTasks from './filterTasks'
+
 function handleOnDragEnd(
   result,
   characters,
@@ -37,6 +40,7 @@ function handleOnDragEnd(
 
     updateCharacters(newCharacters)
     dispatch(updateTasks(newCharacters))
+    postTasks(filterTasks(newCharacters), dispatch)
   }
 }
 export default handleOnDragEnd

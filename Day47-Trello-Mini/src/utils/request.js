@@ -15,10 +15,15 @@ const get = async (path, option = {}, apiKey) => {
   return response.data
 }
 
-const post = async (path, option = {}) => {
-  const response = await request.post(path, option)
+const post = async (path, body = {}) => {
+  const headers = {
+    headers: {
+      'X-Api-Key': localStorage.getItem('apiKey')
+    }
+  }
+  const response = await request.post(path, body, headers)
   return response.data
 }
 
 export default request
-export { get }
+export { get, post }

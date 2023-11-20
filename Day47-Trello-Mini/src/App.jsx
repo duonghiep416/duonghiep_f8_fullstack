@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Toast />
-      <div className='flex items-center w-auto h-screen pl-11'>
+      <div className='flex items-center w-auto h-[98vh] px-11'>
         {loginStatus ? <ListCol /> : <Login />}
       </div>
     </>

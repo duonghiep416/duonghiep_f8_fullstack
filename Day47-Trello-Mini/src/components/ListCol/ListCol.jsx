@@ -1,36 +1,25 @@
 import { useEffect, useState } from 'react'
 import ItemCol from '../ItemCol/ItemCol'
-import * as request from '../../utils/request'
-import handleMatchTasksWithColumns from '../../helpers/matchTasksWithCol'
-import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
-import statusLoginSlice from '../../redux/slice/statusLoginSlice'
 import tasksSlice from '../../redux/slice/tasksSlice'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import handleOnDragEnd from '../../helpers/handleDragEnd'
+import AddTaskBtn from '../Task/AddTaskBtn'
+import { getTask } from '../../utils/handleApi'
 
-const { switchStatusLogin } = statusLoginSlice.actions
 const { updateTasks } = tasksSlice.actions
 function ListCol() {
   const [characters, updateCharacters] = useState([])
   const data = useSelector((state) => state.tasks.tasks)
   const dispatch = useDispatch()
-  const getTask = async () => {
-    try {
-      const res = await request.get('tasks', {}, true)
-      const tasks = res.data.tasks
-      const columns = res.data.columns
-      dispatch(updateTasks(handleMatchTasksWithColumns(tasks, columns)))
-      updateCharacters(handleMatchTasksWithColumns(tasks, columns))
-    } catch (error) {
-      toast.warning('Vui lòng đăng nhập lại')
-      dispatch(switchStatusLogin(false))
-    }
-  }
 
   useEffect(() => {
-    getTask()
+    getTask(dispatch, updateCharacters)
   }, [])
+
+  useEffect(() => {
+    updateCharacters(data)
+  }, [data])
   return (
     <DragDropContext
       onDragEnd={(result) => {
@@ -47,7 +36,7 @@ function ListCol() {
       <Droppable droppableId='characters' direction='horizontal' type='column'>
         {(provided) => (
           <div
-            className='characters flex flex-nowrap gap-3'
+            className='characters flex flex-nowrap gap-3 pr-11'
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
@@ -59,6 +48,7 @@ function ListCol() {
               >
                 {(provided, snapshot) => (
                   <ItemCol
+                    idColumn={column.column}
                     tasks={column.tasks}
                     header={column.columnName}
                     provided={provided}
@@ -69,6 +59,7 @@ function ListCol() {
               </Draggable>
             ))}
             {provided.placeholder}
+            <AddTaskBtn />
           </div>
         )}
       </Droppable>
