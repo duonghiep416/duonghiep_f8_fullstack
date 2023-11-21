@@ -14,7 +14,7 @@ function ItemCol({ tasks, header, provided, snapshot, id, idColumn }) {
     >
       <HeaderItemCol
         header={header}
-        column={tasks}
+        idColumn={idColumn}
         style={{ backgroundColor: snapshot.isDragging ? '#CDE7E4' : '' }}
       />
       <Droppable droppableId={id} type='tasks'>

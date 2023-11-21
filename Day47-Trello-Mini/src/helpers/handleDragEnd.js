@@ -1,3 +1,4 @@
+import { remove } from 'lodash'
 import { postTasks } from '../utils/handleApi'
 import filterTasks from './filterTasks'
 
@@ -32,7 +33,9 @@ function handleOnDragEnd(
       (item) => item._id === destination.droppableId
     )
     const addedTasksCopy = [...newCharacters[addedIndex].tasks]
-    addedTasksCopy.splice(destination.index, 0, removedTask)
+    const removedTaskCopy = { ...removedTask }
+    removedTaskCopy.column = newCharacters[addedIndex].column
+    addedTasksCopy.splice(destination.index, 0, removedTaskCopy)
     newCharacters[addedIndex] = {
       ...newCharacters[addedIndex],
       tasks: addedTasksCopy
