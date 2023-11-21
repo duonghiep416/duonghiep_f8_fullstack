@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import tasksSlice from '../../redux/slice/tasksSlice'
 import { postTasks } from '../../utils/handleApi'
 import filterTasks from '../../helpers/filterTasks'
 import TrashBin from '../TrashBin/TrashBin'
-
+import { EditText } from 'react-edit-text'
+import 'react-edit-text/dist/index.css'
 const { updateTasks } = tasksSlice.actions
 /* eslint-disable react/prop-types */
 function Task({ provided, task, children }) {
@@ -39,30 +40,22 @@ function Task({ provided, task, children }) {
     dispatch(updateTasks(tasksCopy))
     postTasks(filterTasks(tasksCopy), dispatch)
   }
-  const inputRef = useRef()
   return (
     <div
       className='task-container font-semibold text-lg bg-smoky-gray rounded-md min-h-[100px] p-2 border-2 hover:border-teal-400 cursor-pointer'
       ref={provided.innerRef}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
-      onDoubleClick={() => {
-        inputRef.current.disabled = false
-        inputRef.current.focus()
-      }}
-      onClick={() => {
-        inputRef.current.disabled = true
-        inputRef.current.blur()
-      }}
     >
-      <input
+      <EditText
         type='text'
         value={inputValue}
-        ref={inputRef}
-        disabled={true}
-        className='select-none pointer-events-none bg-inherit outline-none border-none'
-        onChange={(e) => setInputValue(e.target.value)}
-        onBlur={handleChangeInputValue}
+        className='bg-inherit outline-none border-none'
+        placeholder='Enter a title for this card...'
+        onChange={(e) => {
+          setInputValue(e.target.value)
+        }}
+        onSave={handleChangeInputValue}
       />
       <TrashBin onClick={handleRemoveTask} />
     </div>

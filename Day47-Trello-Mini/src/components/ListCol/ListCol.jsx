@@ -11,10 +11,11 @@ const { updateTasks } = tasksSlice.actions
 function ListCol() {
   const [characters, updateCharacters] = useState([])
   const data = useSelector((state) => state.tasks.tasks)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
-    getTask(dispatch, updateCharacters)
+    !localStorage.getItem('tasks') && getTask(dispatch, updateCharacters)
   }, [])
 
   useEffect(() => {

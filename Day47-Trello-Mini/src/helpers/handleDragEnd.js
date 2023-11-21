@@ -43,7 +43,12 @@ function handleOnDragEnd(
 
     updateCharacters(newCharacters)
     dispatch(updateTasks(newCharacters))
-    postTasks(filterTasks(newCharacters), dispatch)
+    if (
+      (source.index !== destination.index && removedIndex === addedIndex) ||
+      removedIndex !== addedIndex
+    ) {
+      postTasks(filterTasks(newCharacters), dispatch)
+    }
   }
 }
 export default handleOnDragEnd
