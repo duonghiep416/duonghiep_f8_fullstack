@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import { ThreeDots } from 'react-loader-spinner'
 import { useSelector } from 'react-redux'
-function Loading({ type }) {
+function Loading() {
   const loading = useSelector((state) => state.loading.loading)
+  const type = useSelector((state) => state.loading.typeLoading)
   return (
     loading &&
     (type === 'loading-text' ? (
-      <p>🔁 Đang đồng bộ dữ liệu</p>
+      <p className='fixed bottom-10 right-7'>🔁 Đang đồng bộ dữ liệu</p>
     ) : (
+      // ''
       <ThreeDots
         height='80'
         width='80'

@@ -11,9 +11,10 @@ const { switchLoading } = loadingSlice.actions
 
 const getTask = async (dispatch, updateCharacters) => {
   try {
-    dispatch(switchLoading(true))
+    dispatch(switchLoading({ loading: true, typeLoading: '' }))
     const res = await request.get('tasks', {}, true)
-    dispatch(switchLoading(false))
+    dispatch(switchLoading({ loading: false, typeLoading: '' }))
+
     const tasks = res.data.tasks
     const columns = res.data.columns
     await dispatch(updateTasks(handleMatchTasksWithColumns(tasks, columns)))
@@ -21,18 +22,18 @@ const getTask = async (dispatch, updateCharacters) => {
   } catch (error) {
     toast.warning('Vui lòng đăng nhập lại')
     dispatch(switchStatusLogin(false))
-    dispatch(switchLoading(false))
+    dispatch(switchLoading({ loading: false, typeLoading: '' }))
   }
 }
 
 const handlePostTasks = async (tasks, dispatch) => {
   try {
-    dispatch(switchLoading(true))
+    dispatch(switchLoading({ loading: true, typeLoading: 'loading-text' }))
     await request.post('tasks', tasks)
-    dispatch(switchLoading(false))
+    dispatch(switchLoading({ loading: false, typeLoading: '' }))
   } catch (error) {
     toast.warning('Vui lòng đăng nhập lại')
-    dispatch(switchLoading(false))
+    dispatch(switchLoading({ loading: false, typeLoading: '' }))
     dispatch(switchStatusLogin(false))
   }
 }
