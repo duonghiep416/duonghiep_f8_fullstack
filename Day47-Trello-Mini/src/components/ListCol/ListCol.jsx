@@ -15,7 +15,7 @@ function ListCol() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    !localStorage.getItem('tasks') && getTask(dispatch, updateCharacters)
+    getTask(dispatch, updateCharacters)
   }, [])
 
   useEffect(() => {
