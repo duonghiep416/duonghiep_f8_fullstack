@@ -5,11 +5,9 @@ import Brand from '../Brand/Brand'
 import CtNavbar from '../Navbar/Navbar'
 export default function Header() {
   return (
-    <header className=''>
-      <Navbar isBordered shouldHideOnScroll>
-        <Brand />
-        <CtNavbar />
-      </Navbar>
-    </header>
+    <Navbar isBordered shouldHideOnScroll maxWidth='full'>
+      <Brand />
+      <CtNavbar />
+    </Navbar>
   )
 }
