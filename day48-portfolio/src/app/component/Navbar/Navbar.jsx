@@ -19,7 +19,13 @@ export default function CtNavbar() {
   const router = useRouter()
   const params = useParams()
   const [dictionary, setDictionary] = useState(params.lang === 'vi' ? vi : en)
+  // useEffect(() => {
+  //   localStorage.getItem('lang') === 'vi'
+  //     ? router.push('vi')
+  //     : router.push('en')
 
+  //   setDictionary(params.lang === 'vi' ? vi : en)
+  // }, [params.lang])
   return (
     <NavbarContent justify='between'>
       <NavbarItem>
@@ -67,6 +73,7 @@ export default function CtNavbar() {
           <DropdownItem
             onClick={() => {
               router.push('vi')
+              localStorage.setItem('lang', 'vi')
               setDictionary(vi)
             }}
           >
@@ -75,6 +82,7 @@ export default function CtNavbar() {
           <DropdownItem
             onClick={() => {
               router.push('en')
+              localStorage.setItem('lang', 'en')
               setDictionary(en)
             }}
           >
