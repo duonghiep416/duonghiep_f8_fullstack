@@ -1,0 +1,593 @@
+[33mcommit ce817a52bb1812df8c3d029e151dd2e43f408ce3[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 22 15:32:25 2023 +0700
+
+    Add type loading
+
+[33mcommit 58043f58aa027dd9750a40cc0c2a2a143e2ed273[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 22 05:45:19 2023 +0700
+
+    Add save column ordered
+
+[33mcommit 08affef6edd8fbf9c471c0aac85ee48ce5675c8b[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Nov 21 08:00:26 2023 +0700
+
+    Fig bug remove task, column
+
+[33mcommit 2416d04cf5235a6527a6dc42cc4ecbe939ff6098[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Nov 20 21:47:44 2023 +0700
+
+    Add remove
+
+[33mcommit a8269a4f0e9f2b0f290b0afc1cb8a260bede3eb2[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Nov 19 15:01:38 2023 +0700
+
+    Update
+
+[33mcommit 274df3f8c5d5ae3236cf804b1a88072caf564337[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Nov 19 09:49:56 2023 +0700
+
+    update
+
+[33mcommit 4baca52d35b6f32bb59ef22ee597b020522e4513[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 18 22:26:54 2023 +0700
+
+    Submit exercises Day47
+
+[33mcommit 55d66e0053e2822e9d1122a8de97d56514d70d24[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 15 13:49:16 2023 +0700
+
+    Fix bug
+
+[33mcommit a461143e0e2b71cbbce2340620f5c474d7bd8446[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 15 12:27:24 2023 +0700
+
+    Add route page product list
+
+[33mcommit ab16763cad42188d92a0daea39190c81afc3bd36[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 15 12:16:48 2023 +0700
+
+    Add route page product list
+
+[33mcommit 9fb9028b5245f36ec97faacb740a8eae8cba6a0a[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 15 10:44:52 2023 +0700
+
+    Add total
+
+[33mcommit 3e8b8419bd5912c5e21a751aa0ad175653199747[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 15 09:34:10 2023 +0700
+
+    Add product detail page
+
+[33mcommit 6dbe021dbc3e8b560010004da6d298edbd1a1cc3[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Nov 14 21:56:33 2023 +0700
+
+    Fig bug
+
+[33mcommit 25a2f1c0ddee36ec3aae54a367056e4fba94069a[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Nov 14 21:18:04 2023 +0700
+
+    Add total cart
+
+[33mcommit 541df679b5e02a7bb0896b7052276b1c4969c718[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Nov 14 21:05:04 2023 +0700
+
+    Submit exercises Day46
+
+[33mcommit 00e4480c25feb9ec00a4d78d8ddc724c5e5e090f[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Nov 12 11:22:13 2023 +0700
+
+    Fix bug
+
+[33mcommit 0df720b151203e12216514a0565183ebea4a1847[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 11 22:42:22 2023 +0700
+
+    Fix bug input
+
+[33mcommit e35b29d4a9ef05b5e0fb0a5817ba5a6552176226[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 11 22:11:08 2023 +0700
+
+    Add features
+
+[33mcommit 0ad28801858b759c650a11948e0b182f152c2273[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 11 16:48:06 2023 +0700
+
+    Fix bug local storage
+
+[33mcommit da887985d3a881f5f722cbd479d7b5ad519856f2[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 11 16:42:23 2023 +0700
+
+    Fix bug
+
+[33mcommit f7d67eabe6c080c7ef71194febf4f2e32a0dbb20[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 11 09:19:37 2023 +0700
+
+    Update scroll event
+
+[33mcommit b8edc155d0d6860d06815a30a38a4024363db2ee[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Nov 10 15:31:49 2023 +0700
+
+    Submit exercises Day45
+
+[33mcommit 05aaa6ff813415d45650e441a03e74e7be711794[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Nov 10 10:01:10 2023 +0700
+
+    Submit ex Day45
+
+[33mcommit 50ad5b82d71457ad4ae04da92c9b18fd36daedc7[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Nov 10 09:34:50 2023 +0700
+
+    Submit exercises Day45
+
+[33mcommit 68bc0630d82fe8ee4cdf1621088b4221018dd114[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 8 19:21:26 2023 +0700
+
+    Fix bug
+
+[33mcommit 2f1036e119fbe404d080dfd3c20c2f91dffed7e2[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Nov 6 20:19:53 2023 +0700
+
+    Submit exercises Day44
+
+[33mcommit f294617a1733ae5cf6057b4f0da90b097a2afb5c[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Nov 6 19:52:50 2023 +0700
+
+    Submit exercises Day44
+
+[33mcommit 751ff2d636714486451caee695e671123fdf22b1[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Nov 4 16:53:42 2023 +0700
+
+    Update product cart
+
+[33mcommit cc56158a1e631203b1a3b90a702881f24a2cedf4[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Nov 3 21:55:21 2023 +0700
+
+    Fix bug reset cart
+
+[33mcommit 741069dcce5e45d017debf2105742c20aecaba0a[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Nov 3 17:00:38 2023 +0700
+
+    Submit exercises Day 43
+
+[33mcommit 87a7aa95c196c32bf3a6d733b2b4a419ce57980b[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Nov 3 16:12:54 2023 +0700
+
+    Submit exercises Day34
+
+[33mcommit 87060ba751e0b37de72b01ac0aba406d3fea0556[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Nov 1 09:49:41 2023 +0700
+
+    Update search
+
+[33mcommit 0efcf55fe932504dae2793ce9d0a9d191f88c8f9[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 31 18:38:45 2023 +0700
+
+    Submit exercises Day42
+
+[33mcommit a9ee9012f46b735062b7b5bdbdff10e9e2b08b22[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 31 18:38:23 2023 +0700
+
+    Submit exercises Day42
+
+[33mcommit 4de6add9dd8cac18e27860a063657e0c062cce46[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Oct 29 08:46:02 2023 +0700
+
+    Submit ex Day 41
+
+[33mcommit 37be869e7767ceb2b09432277bdb75093bc8b658[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Oct 29 08:25:30 2023 +0700
+
+    Submit exercises Day41
+
+[33mcommit 650bfb40aead5aaa83644b4afc28d9e542b23f5f[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 28 11:28:12 2023 +0700
+
+    Add favicon, title page
+
+[33mcommit 0f21228658e7661dd70b24a39cc0e9d542fe0be4[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 28 11:16:40 2023 +0700
+
+    Submit exercises Day41
+
+[33mcommit 95baabab48b7c2c1f41d933179f503153d9f5ab4[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 28 09:54:39 2023 +0700
+
+    Submit exercises Day41
+
+[33mcommit 74f1b27a236e2bd15f2618bf35ef9f8bc0794ba0[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 28 08:51:50 2023 +0700
+
+    Submit exercises Day41
+
+[33mcommit c6cf07d059c394d24091118bcfbcabcf3e2dd1d3[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 16:24:41 2023 +0700
+
+    Fix bug images
+
+[33mcommit 9c00b8e49f2b28e0187bbfb32a3fdd76dc285110[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 15:53:31 2023 +0700
+
+    Fix bug images
+
+[33mcommit 6132df1628ee5f08273719939be75df58188350d[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 15:49:41 2023 +0700
+
+    Fix bug images
+
+[33mcommit d4aaeac6365899c8aa4d90a32f4896d807727e48[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 15:46:25 2023 +0700
+
+    Fix bug images
+
+[33mcommit 3aee1022fcad3749867ecb5c68ecd3c808e2caec[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 15:43:09 2023 +0700
+
+    Fix bug images
+
+[33mcommit ef5523b787a8ab9a595cb21a3fc25658958dfb2f[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 15:39:07 2023 +0700
+
+    Add features
+
+[33mcommit 8b0904893e96b10184e47c0b6195221e04091706[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 25 09:11:45 2023 +0700
+
+    Add UI Courses Section
+
+[33mcommit d79b8e192a77c37e133ed5d1e4e4ea7179acb8b5[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 24 21:57:24 2023 +0700
+
+    Submit exercises Day40
+
+[33mcommit 2e2635c3930a3e6f671c839bb06b87a98ef2ecd1[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 24 21:27:43 2023 +0700
+
+    Submit exercises Day40
+
+[33mcommit ea7676ecd5ad18993b139b779434f1154610891b[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 24 21:26:36 2023 +0700
+
+    Submit exercises Day40
+
+[33mcommit 1798459228c8a737095fec4afb63dda552cd76ac[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 24 21:00:18 2023 +0700
+
+    Submit exercises Day40
+
+[33mcommit a4694f1f278f6b2f9e11cb56d787984dbed856a3[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 24 20:55:21 2023 +0700
+
+    Submit exercises Day40
+
+[33mcommit 5f845278d7a40341bcf8347896116334f1346756[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Oct 22 15:25:20 2023 +0700
+
+    Fix bug
+
+[33mcommit ca695dbc920f35981c39f9efb635de67fbaa1b63[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 21 17:23:18 2023 +0700
+
+    Fix bug
+
+[33mcommit 9a55db89d99d366fdf9bb0a520d874126dfa5f7f[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 21 14:44:00 2023 +0700
+
+    Fix bug regex
+
+[33mcommit f0b51ebc09d2329f0a894e4e338e60ed8df8bf4f[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Oct 21 09:34:51 2023 +0700
+
+    Submit exercises Day39
+
+[33mcommit 9c703e67aac92fe03c348964be1114524b2a9738[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 17 23:42:21 2023 +0700
+
+    Submit exercises Day 38
+
+[33mcommit d9be0a86ca3bfe629f85fd677da50ae4ef346ea7[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Oct 16 21:15:10 2023 +0700
+
+    Update exercises Day 37
+
+[33mcommit 75cf387d7e5408d18bb15d0a99aacbbf7a676755[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Oct 16 21:10:20 2023 +0700
+
+    Update exercises Day 37
+
+[33mcommit d16fbe61fb63a61af2602eec1bc47a36edbaf3a6[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Oct 16 19:19:09 2023 +0700
+
+    Add renew access token
+
+[33mcommit 09375fa5758c9ea244e87f490b604126375030c8[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Oct 15 15:35:31 2023 +0700
+
+    Submit exercises Day 37
+
+[33mcommit d45edaa737520569fedc8f1ec5c71c5332663787[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Oct 15 10:45:33 2023 +0700
+
+    Submit exercises Day 37
+
+[33mcommit b94b7b11061a858cd62b86dcf01bb3c910bafc12[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Oct 13 21:59:57 2023 +0700
+
+    Submit exercises Day 37
+
+[33mcommit 461fdea9adeb308aa8cd3b23de4142156f750e6a[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 10 21:43:35 2023 +0700
+
+    Submit exercises Day 36
+
+[33mcommit 27c7b4495c73f4b4e52c2960aaf7229f78a94160[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Oct 6 15:48:00 2023 +0700
+
+    Add CSS exercises Day 35
+
+[33mcommit d089f075526eb673805b6307fa04f90222cef949[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Oct 6 09:10:59 2023 +0700
+
+    Submit exercises Day35
+
+[33mcommit b8056535db80db67eaa4b8269f139e47e3daad33[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 4 09:08:48 2023 +0700
+
+    Fix bug
+
+[33mcommit 425537f44101c2f1d12714b1bd6ccd8918433cee[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Oct 4 08:46:16 2023 +0700
+
+    Submit exercises Day34
+
+[33mcommit 55e0f022fa489d368459a362939f9278a505f327[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 3 19:02:08 2023 +0700
+
+    Submit exercises Day34
+
+[33mcommit c2a4d232332d64b8643d32cc8bb327d368eee654[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Oct 3 16:53:39 2023 +0700
+
+    Submit exercises Day34
+
+[33mcommit fb87075dcf3cd8ec0d0a996e21f49fb4fffe246c[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Sep 30 19:43:27 2023 +0700
+
+    Submit exercises day 33
+
+[33mcommit 319dca1b1b585577bf8196d96d2695208bc59925[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Sep 29 09:38:44 2023 +0700
+
+    Submit exercises Day 33
+
+[33mcommit 0f7e7af635b760c6c43d3f59f352fb389c83b1bb[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Sep 29 07:51:34 2023 +0700
+
+    Submit exercises Day 33
+
+[33mcommit 70c7df1c515f16c23bbf398a5a975f34a84d0340[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Sep 29 07:12:37 2023 +0700
+
+    Submit exercises Day 33
+
+[33mcommit c135c85ef6680e8bb2ff444fb2e0c0ed60824827[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 27 12:22:14 2023 +0700
+
+    Submit exercises day 32
+
+[33mcommit 1a798357cf7c7cd8c08d89aeda2a0349274e89a5[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 27 08:24:40 2023 +0700
+
+    Update
+
+[33mcommit 38628faf69eb7eab82aa2ff7b00167788ce05c48[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Thu Sep 21 15:44:37 2023 +0700
+
+    Submit exercises Day 31
+
+[33mcommit 8ae2e53a103ad35e719e5afd3246b0c1a67ab610[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Thu Sep 21 15:39:49 2023 +0700
+
+    Submit exercises Day 31
+
+[33mcommit 034f615c6b02eab42c7dc2275afe86a0bfbf7167[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 14:04:47 2023 +0700
+
+    Fix bug
+
+[33mcommit 0289de15d5cf25f0cb7d739e0cfe7bc0c79e6970[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 13:51:50 2023 +0700
+
+    Fix bug
+
+[33mcommit 89bbb4b5d6a2a83b715986163fe00295506e668e[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 13:51:27 2023 +0700
+
+    Fix bug
+
+[33mcommit 947a9eed1db90587095bcf022cf50986aab27fc0[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 12:10:36 2023 +0700
+
+    Fix bug
+
+[33mcommit 981ca1c6adcf0be4d04086fa3cf88ea882445c9c[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 12:08:07 2023 +0700
+
+    Fix bug
+
+[33mcommit 0b17aeb2f95f6dc787aef5764aa6cb839ab025e3[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 11:50:55 2023 +0700
+
+    Fix bug
+
+[33mcommit 992b0f3df2cba3a470c3bd271cb444431962274c[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 11:40:01 2023 +0700
+
+    Fix bug
+
+[33mcommit bde2ab72bb3817f03c91e7c597249158bef259b6[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Sep 20 06:41:10 2023 +0700
+
+    Submit exercises Day 30
+
+[33mcommit 8c275515d78b97a6bac1cb8f7622a6dfe298e160[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Sep 18 21:32:35 2023 +0700
+
+    Submit exercises Day 30
+
+[33mcommit b9b9e5a1d5cdddde917b15666b10417853914459[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Mon Sep 18 21:05:52 2023 +0700
+
+    Submit exercises Day 30
+
+[33mcommit 4c50a00e8db5a84cda0f7cf1072e1c88374bc0ae[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Sep 17 06:40:57 2023 +0700
+
+    Submit exercises Day 29
+
+[33mcommit 76c8df4d01a102fbc9f37c2f7e0350a5a263c5ef[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Sep 16 06:55:27 2023 +0700
+
+    Submit exercises Day 29
+
+[33mcommit dbe48901269853ceb102651b419d301c8c85b220[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Sep 16 06:38:13 2023 +0700
+
+    Submit exercises Day 29
+
+[33mcommit bbed3a1b7dc0c637c02fac1e80fabf8f0177276b[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Sep 10 09:44:39 2023 +0700
+
+    Submit exercise Day 27
+
+[33mcommit 6169161cc53cfe022b02855cbf41b4b8a30e8ac9[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sun Sep 10 09:38:21 2023 +0700
+
+    Submit exercise Day 27
+
+[33mcommit 633de65da7cfc08cd233ad5a6c64c07a24ac6106[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Fri Sep 8 16:47:37 2023 +0700
+
+    Submit exercise Day 27
+
+[33mcommit 3e2280918ebf7bfe68f0c10e7c838194ea7b0c70[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Aug 30 14:20:21 2023 +0700
+
+    Fix bug change length of slideInfos
+
+[33mcommit ee2f0fadae2f83110b5ce950b69b5d2dd22d058a[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Wed Aug 30 13:51:56 2023 +0700
+
+    Off auto switch slide function
+
+[33mcommit ea80ab48dd74a8ccb21c308a7830562b28e640e7[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Tue Aug 29 23:41:12 2023 +0700
+
+    Submit Exercises Day 25
+
+[33mcommit 29cdd3475eeb6064fd2c7a053574a5861312a62e[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Aug 26 23:30:11 2023 +0700
+
+    Submit Exercises Day 24
+
+[33mcommit 1fcb1eaec3eb53dbfab01185aea7c1a8b59246bd[m
+Author: duonghiep416 <duonghiep416@gmail.com>
+Date:   Sat Aug 26 23:18:30 2023 +0700
+
+    Submit Exercises Day 24
