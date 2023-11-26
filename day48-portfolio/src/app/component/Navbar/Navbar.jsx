@@ -39,7 +39,7 @@ export default function CtNavbar() {
         </Link>
       </NavbarItem>
       <NavbarItem>
-        <Link href='#projects' color='foreground'>
+        <Link href='#project' color='foreground'>
           {dictionary.navigation.projects}
         </Link>
       </NavbarItem>
