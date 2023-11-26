@@ -1,12 +1,10 @@
 import { en } from '@/dictionaries/en'
 import { vi } from '@/dictionaries/vi'
-import { Chip, Image } from '@nextui-org/react'
+import { Image } from '@nextui-org/react'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 
-function About({ className, id }) {
-  const params = useParams()
-  const [dictionary, setDictionary] = useState(params.lang === 'vi' ? vi : en)
+function About({ className, id, dictionary }) {
   return (
     <div className='about-content flex justify-between items-center'>
       <div className='about-me basis-6/12 flex flex-col gap-10'>

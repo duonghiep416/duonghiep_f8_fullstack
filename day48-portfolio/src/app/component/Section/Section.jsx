@@ -8,18 +8,20 @@ function Section({ className, Children, id }) {
   const params = useParams()
   const [dictionary, setDictionary] = useState(params.lang === 'vi' ? vi : en)
   return (
-    <div className={`${className}`} id='about'>
-      <Chip
-        variant='bordered'
-        color='secondary'
-        classNames={{
-          base: 'hover:bg-secondary hover:text-white cursor-pointer'
-        }}
-      >
-        {dictionary[id].tag}
-      </Chip>
+    <>
+      <div className={`max-w-fit mx-auto mb-10 ${className}`} id={id}>
+        <Chip
+          variant='bordered'
+          color='secondary'
+          classNames={{
+            base: 'hover:bg-secondary hover:text-white cursor-pointer'
+          }}
+        >
+          {dictionary[id].tag}
+        </Chip>
+      </div>
       <Children dictionary={dictionary} />
-    </div>
+    </>
   )
 }
 export default Section

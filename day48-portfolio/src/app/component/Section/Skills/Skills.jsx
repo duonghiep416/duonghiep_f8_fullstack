@@ -1,19 +1,27 @@
 import React from 'react'
 import { listSkills } from './listSkills'
-export default function Skills() {
+import { Image } from '@nextui-org/react'
+function Skills({ dictionary }) {
   return (
-    <div className='grid grid-cols-3 gap-4'>
-      <p>The skills, tools and technologies</p>
-      {listSkills.map((skill, index) => (
-        <div key={index} className='flex flex-col items-center justify-center'>
-          <img
-            src={`/static/iconSkills${skill.pathImage}`}
-            alt={skill.name}
-            className='w-20 h-20'
-          />
-          <p className='text-center'>{skill.name}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <p className='text-center mb-20'>{dictionary.skills.description}</p>
+      <div className='grid grid-cols-8 gap-16'>
+        {listSkills.map((skill, index) => (
+          <div
+            key={index}
+            className='flex flex-col items-center justify-center'
+          >
+            <Image
+              src={skill.pathImage}
+              alt={skill.name}
+              width={60}
+              height={60}
+            />
+            <p className='text-center mt-2'>{skill.name}</p>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
+export default Skills

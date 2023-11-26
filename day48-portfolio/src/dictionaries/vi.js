@@ -25,6 +25,11 @@ export const vi = {
     button: 'Get started'
   },
   skills: {
-    tag: 'Kĩ năng'
+    tag: 'Kĩ năng',
+    description: 'Các kĩ năng, công cụ, công nghệ sử dụng'
+  },
+  project: {
+    tag: 'Dự án',
+    description: 'Một số dự án tiêu biểu tôi đã làm:'
   }
 }

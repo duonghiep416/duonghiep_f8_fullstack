@@ -25,6 +25,11 @@ export const en = {
     button: 'Get started'
   },
   skills: {
-    tag: 'Skills'
+    tag: 'Skills',
+    description: 'The skills, tools and technologies'
+  },
+  project: {
+    tag: 'Projects',
+    description: 'Some of the noteworthy projects I have built:'
   }
 }
