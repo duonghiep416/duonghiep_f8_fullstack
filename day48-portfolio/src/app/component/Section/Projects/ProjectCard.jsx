@@ -14,7 +14,7 @@ export default function ProjectCard() {
               <div className='card-image'>
                 <img
                   src={project.pathImage}
-                  alt='Shopping Cart'
+                  alt={project.name}
                   className='object-cover w-[500px] h-72 rounded-md'
                 />
               </div>
