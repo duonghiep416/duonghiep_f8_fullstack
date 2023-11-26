@@ -15,7 +15,7 @@ export default function App() {
         <main className='container mx-auto'>
           <Section Children={About} id='about' className='pt-20' />
           <Section Children={Skills} id='skills' className='pt-20' />
-          <Section Children={Projects} id='project' className='pt-20' />
+          {/* <Section Children={Projects} id='project' className='pt-20' /> */}
         </main>
       </NextThemesProvider>
     </NextUIProvider>
