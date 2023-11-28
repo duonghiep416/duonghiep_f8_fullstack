@@ -4,7 +4,8 @@ import { Input } from '@nextui-org/react'
 import emailjs from '@emailjs/browser'
 import { configEmailjs } from '@/app/config'
 
-export default function PaymentForm() {
+export default function PaymentForm({ id, nameProduct }) {
+  console.log(nameProduct)
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
@@ -21,7 +22,8 @@ export default function PaymentForm() {
       email,
       name,
       phone,
-      dateStart
+      dateStart,
+      location: decodeURIComponent(nameProduct)
     }
     await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, API_KEY)
   }

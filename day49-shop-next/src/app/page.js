@@ -17,7 +17,7 @@ export default async function Home() {
           </Link>
           <h3 className='text-xl font-bold text-center'>{page.home.content}</h3>
           <p className=''>{page.home.textcontent}</p>
-          <Link href='/payment'>
+          <Link href={`/payment/${page.home.name}/${page.id}`}>
             <Button color='primary' variant='bordered'>
               Mua ngay
             </Button>
