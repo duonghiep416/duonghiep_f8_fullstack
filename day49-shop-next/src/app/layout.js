@@ -3,6 +3,7 @@ import './globals.css'
 import { Providers } from './providers'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { SearchProvider } from './context/searchContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -15,9 +16,11 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body>
         <Providers>
-          <Header />
-          {children}
-          <Footer />
+          <SearchProvider>
+            <Header />
+            {children}
+            <Footer />
+          </SearchProvider>
         </Providers>
       </body>
     </html>
