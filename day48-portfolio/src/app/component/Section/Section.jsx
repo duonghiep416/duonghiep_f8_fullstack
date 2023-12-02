@@ -1,3 +1,4 @@
+'use client'
 import { en } from '@/dictionaries/en'
 import { vi } from '@/dictionaries/vi'
 import { Chip, Image } from '@nextui-org/react'

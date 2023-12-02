@@ -1,3 +1,4 @@
+'use client'
 import { en } from '@/dictionaries/en'
 import { vi } from '@/dictionaries/vi'
 import {
@@ -13,6 +14,7 @@ import {
 import { useTheme } from 'next-themes'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import SignIn from './SignIn'
 
 export default function CtNavbar() {
   const { theme, setTheme } = useTheme()
@@ -90,6 +92,7 @@ export default function CtNavbar() {
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
+      <SignIn />
     </NavbarContent>
   )
 }

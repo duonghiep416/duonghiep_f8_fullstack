@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { listSkills } from './listSkills'
 import { Image } from '@nextui-org/react'

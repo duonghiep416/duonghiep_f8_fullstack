@@ -1,6 +1,5 @@
+'use client'
 import React from 'react'
-import { listProject } from './listProject'
-import { Image } from '@nextui-org/react'
 import ProjectCard from './ProjectCard'
 function Projects({ dictionary }) {
   return (

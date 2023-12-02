@@ -34,5 +34,7 @@ export function middleware(request) {
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
+  matcher: ['/((?!api|static|.*\\..*|_next).*)']
 }
+
+export { default } from 'next-auth/middleware'

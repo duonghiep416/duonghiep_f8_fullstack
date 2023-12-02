@@ -1,10 +1,7 @@
-import { en } from '@/dictionaries/en'
-import { vi } from '@/dictionaries/vi'
+'use client'
 import { Image } from '@nextui-org/react'
-import { useParams } from 'next/navigation'
-import React, { useState } from 'react'
 
-function About({ className, id, dictionary }) {
+function About({ dictionary }) {
   return (
     <div className='about-content flex justify-between items-center'>
       <div className='about-me basis-6/12 flex flex-col gap-10'>
