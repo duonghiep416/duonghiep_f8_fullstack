@@ -3,6 +3,7 @@ import { Button, Input } from '@nextui-org/react'
 import Link from 'next/link'
 import React from 'react'
 import { signIn } from 'next-auth/react'
+import axios from 'axios'
 export default function FormAuth({ type }) {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -20,14 +21,31 @@ export default function FormAuth({ type }) {
   const handleChangeName = (e) => {
     setName(e.target.value)
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    signIn('credentials', {
-      isSignup: type === 'signup',
-      name,
-      username: email,
-      password
-    })
+    if (type === 'signup' && password !== confirmPassword) {
+      return alert('Password and Confirm Password not match')
+    }
+    try {
+      const data = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/${
+          type === 'signup' ? 'register' : 'login'
+        }`,
+        {
+          name,
+          username: email,
+          password: password
+        }
+      )
+      console.log(data.data.body)
+      signIn('credentials', {
+        user: JSON.stringify(data)
+      })
+    } catch (error) {
+      console.log(error)
+      const errorMessage = error.response.data.error
+      alert(errorMessage)
+    }
   }
   return (
     <div className='p-7 shadow-lg bg-black/5 dark:bg-white rounded-3xl'>
@@ -47,7 +65,7 @@ export default function FormAuth({ type }) {
               placeholder='Enter your name'
               value={name}
               onChange={handleChangeName}
-              required
+              isRequired
             />
           </div>
         )}
@@ -58,7 +76,7 @@ export default function FormAuth({ type }) {
             placeholder='Enter your username'
             value={email}
             onChange={handleChangeEmail}
-            required
+            isRequired
           />
         </div>
         <div className='flex w-full flex-wrap md:flex-nowrap gap-4'>
@@ -68,7 +86,7 @@ export default function FormAuth({ type }) {
             placeholder='Password'
             value={password}
             onChange={handleChangePassword}
-            required
+            isRequired
           />
         </div>
         {type === 'signup' && (
@@ -79,7 +97,7 @@ export default function FormAuth({ type }) {
               label='Confirm Password'
               value={confirmPassword}
               onChange={handleChangeConfirmPassword}
-              required
+              isRequired
             />
           </div>
         )}

@@ -22,22 +22,9 @@ export const options = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        try {
-          const data = await axios.post(
-            `${process.env.NEXT_PUBLIC_API_URL}/auth/${
-              credentials.isSignup === 'true' ? 'register' : 'login'
-            }`,
-            {
-              name: credentials.name,
-              username: credentials.username,
-              password: credentials.password
-            }
-          )
-          if (data.data.body.user || data.data.body) {
-            return data.data.body.user || data.data.body
-          }
-        } catch (error) {
-          const errorMessage = error.response.data.error
+        const user = JSON.parse(credentials.user).data.body
+        if (user.user || user) {
+          return user.user || user
         }
       }
     })
