@@ -46,8 +46,8 @@ SET updated_at = NOW(),
 	bio = CASE
 		WHEN id = 4 THEN 'Tôi là Hoàng An'
 		WHEN id = 5 THEN 'Tôi là Sơn Đặng'
-		WHEN id = 6 THEN 'Tôi là Hoàng An 2
-		ELSE bio'
+		WHEN id = 6 THEN 'Tôi là Hoàng An 2'
+		ELSE bio
 	END
 WHERE id BETWEEN 4 AND 6;
 
