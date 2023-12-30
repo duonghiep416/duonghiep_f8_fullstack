@@ -81,3 +81,6 @@ JOIN orders ON order_detail.order_id = orders.id
 JOIN customers ON orders.customer_id = customers.id
 JOIN products ON order_detail.product_id = products.id;
 SELECT * FROM order_detail_view;
+
+
+
