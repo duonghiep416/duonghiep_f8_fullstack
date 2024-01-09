@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>TRANG ĐĂNG KÍ</h1>
+    <%- error ? `<span style="color: red">${error}</span>` : '' %>
+    <br>
+    <form action="" method="post" autocomplete="off" style="margin-top: 20px">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" required value="<%= dataPrev ? dataPrev.username : '' %>"/>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" value="<%= dataPrev ? dataPrev.password : '' %>" required/>
+      </div>
+      <div>
+        <label>Confirm Password:</label>
+        <input type="password" name="confirmPassword" value="<%= dataPrev ? dataPrev.confirmPassword : '' %>" required/>
+      <button>Đăng kí</button>
+    </form>
+  </body>
+</html>

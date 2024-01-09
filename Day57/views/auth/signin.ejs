@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>TRANG ĐĂNG NHẬP</h1>
+    <%- error ? `<span style="color: red">${error}</span>` : '' %>
+    <br />
+    <form action="" method="post" autocomplete="off" style="margin-top: 20px">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <input type="submit" value="Log In" />
+      </div>
+    </form>
+  </body>
+</html>
