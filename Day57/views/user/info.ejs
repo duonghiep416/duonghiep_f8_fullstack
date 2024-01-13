@@ -1,0 +1,16 @@
+<h1>Thông tin tài khoản</h1>
+<form action="" method="post">
+  <div class="form-group">
+    <label for="username">Tên đăng nhập</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      value="<%= user.username %>"
+    />
+    <%- error ? `<span style="color: red">${error}</span>` : '' %>
+  </div>
+  <a href="/users/change-password">Đổi mật khẩu</a>
+  <button>Submit</button>
+</form>
