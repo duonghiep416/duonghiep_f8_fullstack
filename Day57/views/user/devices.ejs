@@ -1,0 +1,39 @@
+<h1>Thiết bị đã đăng nhập</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>IP</th>
+      <th>Trình duyệt</th>
+      <th>Hệ điều hành</th>
+      <th>Thời gian đăng nhập</th>
+      <th>Trạng thái</th>
+      <th>Sửa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% devices.forEach((device, index) => { %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= device.ip %></td>
+      <td><%= device.browser %></td>
+      <td><%= device.os %></td>
+      <td><%= moment(device.created_at).format('DD/MM/YYYY HH:mm:ss') %></td>
+      <td><%= device.status ? 'Cho phép' : 'Không cho phép' %></td>
+      <td>
+        <a
+          href="/users/devices/<%= device.id %>"
+          style="
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+          "
+          >Đổi trạng thái</a
+        >
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

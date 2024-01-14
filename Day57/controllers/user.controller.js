@@ -3,6 +3,7 @@ const model = require('../models/index')
 const signUpUtils = require('../utils/signUp.utils')
 const User = model.User
 const Device = model.Device
+const moment = require('moment')
 const bcrypt = require('bcrypt')
 var ip = require('ip')
 
@@ -138,5 +139,50 @@ module.exports = {
       title: 'Đổi mật khẩu',
       error: req.flash('error')[0]
     })
+  },
+
+  devices: async (req, res) => {
+    if (!req.session?.user) {
+      res.redirect('/auth/sign-in')
+      return
+    }
+    const devices = await Device.findAll({
+      where: { ip: ip.address(), status: true }
+    })
+    if (!devices.length) {
+      req.session.destroy()
+      res.redirect('/auth/sign-in')
+      return
+    }
+    const user = await User.findOne({
+      where: {
+        username: req.session?.user
+      }
+    })
+    const devicesOfUser = await Device.findAll({
+      order: [['created_at', 'DESC']],
+      where: { user_id: user.dataValues.id }
+    })
+    res.render('user/devices', {
+      title: 'Thiết bị',
+      devices: devicesOfUser,
+      error: req.flash('error')[0],
+      moment
+    })
+  },
+  handleUpdateDevice: async (req, res) => {
+    const { id } = req.params
+    console.log(id)
+    const device = await Device.findOne({ where: { id } })
+    if (!device) {
+      req.flash('error', 'Không tìm thấy thiết bị')
+      res.redirect('/users/devices')
+      return
+    }
+    await Device.update(
+      { status: !device.dataValues.status },
+      { where: { id } }
+    )
+    res.redirect('/users/devices')
   }
 }

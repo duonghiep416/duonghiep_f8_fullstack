@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       browser: DataTypes.STRING,
       os: DataTypes.STRING,
       ip: DataTypes.STRING,
+      created_at: DataTypes.DATE,
       status: DataTypes.BOOLEAN
     },
     {

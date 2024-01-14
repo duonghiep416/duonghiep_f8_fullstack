@@ -9,4 +9,6 @@ router.get('/info', userController.info)
 router.post('/info', userController.handleChangeInfo)
 router.get('/change-password', userController.changePassword)
 router.post('/change-password', userController.handleChangePassword)
+router.get('/devices', userController.devices)
+router.get('/devices/:id', userController.handleUpdateDevice)
 module.exports = router
