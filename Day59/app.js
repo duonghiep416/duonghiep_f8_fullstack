@@ -21,17 +21,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-app.use(async function (req, res, next) {
-  if (req._parsedUrl.pathname === '/images/trackingImage.png') {
-    const { id } = req.query
-    const mail = await Mail.findByPk(id)
-    if (mail) {
-      mail.status = true
-      await mail.save()
-    }
-  }
-  next()
-})
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
