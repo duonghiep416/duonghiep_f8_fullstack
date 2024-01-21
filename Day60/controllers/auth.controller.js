@@ -16,6 +16,7 @@ module.exports = {
   },
   handleForgotPassword: async (req, res, next) => {
     const { email } = req.body
+    const emailWithoutDotCom = email.split('@')[0]
     const user = await User.findOne({ where: { email } })
     if (!user) {
       return res.send('Email không tồn tại')
@@ -29,7 +30,7 @@ module.exports = {
     const token = crypto.randomBytes(16).toString('hex')
     const expirationTime = Date.now() + 15 * 60 * 1000
     temporaryLinks.set(token, expirationTime)
-    const link = `https://day60.vercel.app/auth/reset-password/${token}/${email}`
+    const link = `https://day60.vercel.app/auth/reset-password/${token}/${emailWithoutDotCom}`
     const info = await sendMail(req.body.email, 'Reset password', link)
     return res.send('Vui lòng kiểm tra email để đặt lại mật khẩu')
   },
@@ -46,7 +47,8 @@ module.exports = {
     }
   },
   handleResetPassword: async (req, res, next) => {
-    const { email, token } = req.params
+    let { email, token } = req.params
+    email = email + '@gmail.com'
     const { password, confirmPassword } = req.body
     if (password.length < 6) {
       req.flash('error', 'Mật khẩu phải có ít nhất 6 kí tự')
