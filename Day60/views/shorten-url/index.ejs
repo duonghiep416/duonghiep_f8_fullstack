@@ -1,0 +1,165 @@
+<h1>Rút gọn liên kết</h1>
+<p>Công cụ rút ngắn liên kết miễn phí nhanh nhất</p>
+<div class="d-flex justify-content-between align-items-start gap-3">
+  <div style="border: 1px solid #d6d6d6; border-radius: 10px; padding: 20px; min-width: 50vw;">
+    <% if (shortenUrls.length) { %>
+      <table border="1">
+        <tr>
+          <th>STT</th>
+          <th>Liên kết rút gọn</th>
+          <th>Liên kết gốc</th>
+          <th>Mật khẩu</th>
+          <th>Lượt truy cập</th>
+          <th>Thời gian tạo</th>
+          <th>Hành động</th>
+        </tr>
+        <% for( let index = 0; index < shortenUrls.length; index++ ) { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td>
+            <a href="<%= shortenUrls[index].shorten_url %>" target="_blank"
+              ><%= shortenUrls[index].shorten_url %></a
+            >
+          </td>
+          <td>
+            <a href="<%= shortenUrls[index].original_url %>" target="_blank"
+              ><%= shortenUrls[index].original_url %></a
+            >
+          </td>
+          <td><%= shortenUrls[index].password ? shortenUrls[index].password : 'Không có' %></td>
+          <td><%= shortenUrls[index].access_times %></td>
+          <td><%= moment(shortenUrls[index].created_at).utcOffset('+07:00').format("DD/MM/YYYY HH:mm:ss") %></td>
+          <td>
+            <a href="/shorten-url/edit/<%= shortenUrls[index].id %>">Sửa</a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=<%= shortenUrls[index].original_url %>&hashtag==%23F88_share"
+              target="_blank"
+              >Chia sẻ</a
+            >
+            <a href="javascript:void(0);" onclick="confirmDelete('<%= shortenUrls[index].id %>')">Xóa</a>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    <% } else { %>
+      <p style="background-color: #f75676;
+      padding: 15px 20px;
+      color: #fff;
+      height: 100%;
+      margin: 0;
+      font-size: 17px;
+      border-radius: inherit;">Bạn chưa rút gọn liên kết nào. Bạn còn chờ gì nữa?</p>
+    <% } %>     
+    
+  </div>
+  <% if (!edit) { %>
+  <form
+    action=""
+    method="post"
+    autocomplete="off"
+    style="
+      width: 480px;
+      border: 1px solid #d6d6d6;
+      border-radius: 10px;
+      padding: 20px;
+    "
+  >
+    <div class="mb-3">
+      <label for="original_url" class="form-label">Liên kết</label>
+      <input
+        type="text"
+        class="form-control"
+        id="original_url"
+        name="original_url"
+        placeholder="Rút gọn liên kết của bạn"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Mật khẩu (tùy chọn)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Nhập mật khẩu"
+      />
+    </div>
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        id="safe_navigation"
+        name="safe_navigation"
+        class="form-check-input"
+      />
+      <label for="safe_navigation" class="form-check-label"
+        >Chuyển hướng an toàn</label
+      >
+    </div>
+    <div class="mb-3">
+      <label for="id_url" class="form-label">Tùy chỉnh ID của liên kết (tùy chọn)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="id_url"
+        name="id_url"
+        placeholder="Nhập ID của liên kết"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Rút gọn</button>
+    <% if (error) { %>
+    <p style="color: red; margin-top: 10px"><%= error %></p>
+    <% } %>
+  </form>
+  <% } %>
+  <% if (edit) { %>
+    <form
+    action=""
+    method="post"
+    autocomplete="off"
+    style="
+      width: 480px;
+      border: 1px solid #d6d6d6;
+      border-radius: 10px;
+      padding: 20px;
+    "
+  >
+    <div class="mb-3">
+      <label for="shorten_url" class="form-label">Liên kết rút gọn</label>
+      <input
+        type="text"
+        class="form-control"
+        id="shorten_url"
+        name="shorten_url"
+        placeholder="Rút gọn liên kết của bạn"
+        value="<%= urlEdit.shorten_url %>"
+        disabled
+      />
+    <div class="mb-3">
+      <label for="original_url" class="form-label">Liên kết gốc</label>
+      <input
+        type="text"
+        class="form-control"
+        id="original_url"
+        name="original_url"
+        placeholder="Rút gọn liên kết của bạn"
+        value="<%= urlEdit.original_url %>"
+        disabled
+      />
+    </div>
+    <div class="mb-3">
+      <label for="id_url" class="form-label">Tùy chỉnh ID của liên kết</label>
+      <input
+        type="text"
+        class="form-control"
+        id="id_url"
+        name="id_url"
+        placeholder="Nhập ID của liên kết"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+    <% if (error) { %>
+    <p style="color: red; margin-top: 10px"><%= error %></p>
+    <% } %>
+  </form>
+  <% } %>
+</div>

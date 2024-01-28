@@ -1,0 +1,23 @@
+<div>
+  <h1>Danh sách người dùng</h1>
+  <table border="1">
+    <tr>
+      <th>STT</th>
+      <th>Tên</th>
+      <th>Email</th>
+      <th>Phân quyền</th>
+    </tr>
+    <% for (var i = 0; i < users.length; i++) { %>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= users[i].name %></td>
+      <td><%= users[i].email %></td>
+      <td>
+        <a href="/role/<%= users[i].id %>" class="btn btn-success"
+          >Phân quyền</a
+        >
+      </td>
+    </tr>
+    <% } %>
+  </table>
+</div>

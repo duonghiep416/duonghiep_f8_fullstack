@@ -6,8 +6,9 @@
   </head>
   <body>
     <h1>Trang chủ</h1>
-    <ul class="d-flex gap-2 list-unstyled">
+    <ul class="d-flex flex-column gap-2 list-unstyled">
       <li>Chào bạn: <b><%= req.user.name %></b></li>
+      <li><a href="/shorten-url">Rút gọn liên kết</a></li>
       <li><a href="/auth/logout">Đăng xuất</a></li>
     </ul>
   </body>

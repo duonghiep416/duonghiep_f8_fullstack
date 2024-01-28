@@ -5,7 +5,7 @@ module.exports = new GoogleStrategy(
     clientID:
       '1002500978903-g9frgiuttqd7mch0fo6gc3qvlknutsik.apps.googleusercontent.com',
     clientSecret: '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',
-    callbackURL: 'https://day60.vercel.app/auth/google/callback',
+    callbackURL: `${process.env.BASE_URL}/auth/google/callback`,
     scope: ['profile', 'email'],
     state: true
   },

@@ -6,7 +6,9 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
+var roleRouter = require('./routes/role')
 var authRouter = require('./routes/auth')
+var shortenUrlRouter = require('./routes/shorten-url')
 var session = require('express-session')
 var expressLayouts = require('express-ejs-layouts')
 const passport = require('passport')
@@ -65,6 +67,8 @@ app.use('/auth', guestMiddleware, authRouter)
 app.use(authMiddleware)
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/role', roleRouter)
+app.use('/shorten-url', shortenUrlRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

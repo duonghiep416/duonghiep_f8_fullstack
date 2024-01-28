@@ -6,6 +6,14 @@ module.exports = {
     const data = []
     const salt = bcrypt.genSaltSync(10)
     data.push({
+      name: 'Nguyễn Dương',
+      email: 'duongcoilc2004@gmail.com',
+      password: bcrypt.hashSync('123456789', salt),
+      status: true,
+      created_at: new Date(),
+      updated_at: new Date()
+    })
+    data.push({
       name: 'Dương Hiệp',
       email: 'duonghiep416@gmail.com',
       password: bcrypt.hashSync('123456', salt),
