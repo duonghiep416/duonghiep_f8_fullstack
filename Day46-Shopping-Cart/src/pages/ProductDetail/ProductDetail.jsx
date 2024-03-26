@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import * as request from '../../utils/request'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
@@ -8,7 +8,6 @@ import Header from '../../components/Header/Header'
 function ProductDetail() {
   const params = useParams()
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const products = useSelector((state) => state.productsCart)
   const indexProduct = products.findIndex(
     (product) => product._id === params.id
@@ -23,14 +22,15 @@ function ProductDetail() {
         payload: true
       })
       const res = await request.get(`/products/${params.id}`)
-      setProductDetail(res.data)
+      setProductDetail(res)
       dispatch({
         type: 'loading/switch',
         payload: false
       })
     } catch (error) {
-      toast.error('Sản phẩm không tồn tại')
-      navigate('/')
+      // toast.error('Sản phẩm không tồn tại')
+      // navigate('/')
+      console.log(error)
     }
   }
 
@@ -73,6 +73,7 @@ function ProductDetail() {
           <p className='product-price font-bold text-2xl'>
             ${productDetail.price}
           </p>
+          <p className='font-bold'>{`Brand: ${productDetail.company}`}</p>
           <p className='product-category px-2 py-1 rounded-full bg-red-700/40 text-white'>
             {productDetail.category}
           </p>

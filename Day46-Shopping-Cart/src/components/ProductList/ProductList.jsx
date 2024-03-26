@@ -41,23 +41,16 @@ export default function ProductList() {
         type: 'loading/switch',
         payload: true
       })
-      const res = await request.get('/products', {
-        params: {
-          page: page.current,
-          limit: 20
-        }
-      })
-      setProducts(res.data.listProduct)
-      if (res.data.listProduct.length === 0) {
-        navigate('/')
-      }
+      const res = await request.get('/products')
+      setProducts(res)
       dispatch({
         type: 'loading/switch',
         payload: false
       })
     } catch (error) {
-      toast.error('Có lỗi xảy ra')
-      navigate('/')
+      // toast.error('Có lỗi xảy ra')
+      // navigate('/')
+      console.log(error)
     }
   }
   useEffect(() => {
@@ -70,11 +63,11 @@ export default function ProductList() {
     <>
       <div className='product-list grid gap-4 grid-cols-4 py-5'>
         {products.map((product) => {
-          const { image, _id, name, price } = product
+          const { image, id, name, price } = product
           return (
             <ProductItem
-              key={_id}
-              id={_id}
+              key={id}
+              id={id}
               imgUrl={image}
               productName={name}
               productPrice={price}

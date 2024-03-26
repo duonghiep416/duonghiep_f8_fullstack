@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://api-exercise-sopi.vercel.app/api/v1/'
+  baseURL: 'http://localhost:8888/'
 })
 
 const get = async (path, options = {}) => {
